@@ -1,0 +1,22 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.github.kherrick.twa",
+      "sha256_cert_fingerprints": [
+        "E2:03:EA:DC:AE:DD:5C:DD:49:08:B9:A0:20:76:E3:73:A8:ED:14:DE:BE:EE:3A:E5:CE:6E:68:65:7B:73:D4:DA"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.github.kherrick.twa",
+      "sha256_cert_fingerprints": [
+        "92:19:D6:2A:91:EF:FA:56:E5:95:91:29:1E:2C:12:03:A1:1E:6E:69:0F:F6:C4:4D:B5:F0:C2:E3:65:9E:89:89"
+      ]
+    }
+  }
+]
