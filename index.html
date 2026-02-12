@@ -1,347 +1,1063 @@
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <title>kherrick.github.io</title>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport" />
-  <meta name="description" content="Pages at kherrick.github.io" />
-  <!--
-  <meta
-    http-equiv="refresh"
-    content="0;url=https://karlherrick.com"
-  />
-  -->
-  <!--
-  <script>
-    location.replace("https://karlherrick.com");
-  </script>
-  -->
-  <link
-    href="data:image/x-icon;base64,AAABAAEAAQECAAEAAQA4AAAAFgAAACgAAAABAAAAAgAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEAAQECAAEAAQA4AAAAFgAAACgAAAABAAAAAgAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAA"
-    rel="icon" type="image/x-icon" />
-  <link
-    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIAAQMAAADOtka5AAAAA1BMVEUAAACnej3aAAAANklEQVR42u3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8G4IAAAFjdVCkAAAAAElFTkSuQmCC"
-    rel="apple-touch-icon" />
-  <style>
-    body {
-      font-family: system-ui;
-      line-height: 1.5;
-      margin: auto;
-      max-width: 50rem;
-      padding: 0 1rem;
-    }
+  <head>
+    <title>kherrick.github.io</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="description" content="Pages at kherrick.github.io" />
+    <!--
+    <meta
+      http-equiv="refresh"
+      content="0;url=https://karlherrick.com"
+    />
+    -->
+    <!--
+    <script>
+      location.replace("https://karlherrick.com");
+    </script>
+    -->
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="data:image/x-icon;base64,AAABAAEAAQECAAEAAQA4AAAAFgAAACgAAAABAAAAAgAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAEAAQECAAEAAQA4AAAAFgAAACgAAAABAAAAAgAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIAAQMAAADOtka5AAAAA1BMVEUAAACnej3aAAAANklEQVR42u3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8G4IAAAFjdVCkAAAAAElFTkSuQmCC"
+    />
+    <style>
+      body {
+        font-family:
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Oxygen,
+          Ubuntu,
+          Cantarell,
+          "Open Sans",
+          "Helvetica Neue",
+          sans-serif;
+        line-height: 1.5;
+        margin: auto;
+        max-width: 50rem;
+        padding: 0 1rem;
+        color: #000;
+      }
 
-    a {
-      color: #000;
-    }
+      .nav-section {
+        margin-bottom: 2rem;
+      }
 
-    a:visited,
-    a:hover,
-    a:focus,
-    a:active {
-      color: #999;
-    }
+      .nav-section__title {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 0.5rem;
+      }
 
-    h1 {
-      display: flex;
-      justify-content: space-between;
-    }
+      .nav-section__title a,
+      .nav-section__title a:visited {
+        color: #000;
+        text-decoration: none;
+      }
 
-    h1 a,
-    h1 a:visited,
-    h1 a:hover,
-    h1 a:focus,
-    h1 a:active {
-      color: #000;
-    }
+      .nav-section__title a:hover,
+      .nav-section__title a:focus {
+        text-decoration: underline;
+      }
 
-    ul {
-      padding-left: 1.5rem;
-    }
+      .sitemap {
+        list-style-type: none;
+        padding-left: 0;
+      }
 
-    pre {
-      overflow: auto;
-    }
+      .sitemap__list {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+      }
 
-    code {
-      text-wrap: auto;
-    }
-  </style>
-</head>
-<body>
-  <h1>
-    <a href="https://kherrick.github.io/">kherrick.github.io</a>
-  </h1>
-  <h2>Pages</h2>
-  <ul>
-    <li>
-      Games
-      <ul>
-        <li>
-          <a href="https://kherrick.github.io/block-garden/">https://kherrick.github.io/block-garden/</a>
-          <ul>
-            <li><a href="https://kherrick.github.io/block-garden/about/">https://kherrick.github.io/block-garden/about/</a></li>
-            <li><a href="https://kherrick.github.io/block-garden/privacy/">https://kherrick.github.io/block-garden/privacy/</a></li>
-            <li><a href="https://kherrick.github.io/block-garden/src/api/examples/">https://kherrick.github.io/block-garden/src/api/examples/</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="https://kherrick.github.io/sprite-garden/">https://kherrick.github.io/sprite-garden/</a>
-          <ul>
-            <li><a href="https://kherrick.github.io/sprite-garden/about/">https://kherrick.github.io/sprite-garden/about/</a></li>
-            <li><a href="https://kherrick.github.io/sprite-garden/privacy/">https://kherrick.github.io/sprite-garden/privacy/</a></li>
-            <li><a href="https://kherrick.github.io/sprite-garden/src/api/examples/">https://kherrick.github.io/sprite-garden/src/api/examples/</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li>
-      News
-      <ul>
-        <li><a href="https://kherrick.github.io/news-summary-browser/">https://kherrick.github.io/news-summary-browser/</a></li>
-        <li><a href="https://kherrick.github.io/news-summary/">https://kherrick.github.io/news-summary/</a></li>
-        <li><a href="https://kherrick.github.io/hacker-news/">https://kherrick.github.io/hacker-news/</a></li>
-        <li><a href="https://kherrick.github.io/lobsters/">https://kherrick.github.io/lobsters/</a></li>
-        <li><a href="https://kherrick.github.io/slashdot/">https://kherrick.github.io/slashdot/</a></li>
-        <li><a href="https://kherrick.github.io/soylent-news/">https://kherrick.github.io/soylent-news/</a></li>
-      </ul>
-    </li>
-    <li>
-      Wasm
-      <ul>
-        <li><a href="https://kherrick.github.io/c-sharp-wasm-components/">https://kherrick.github.io/c-sharp-wasm-components/</a></li>
-        <li><a href="https://kherrick.github.io/minimal-c-sharp-wasm/">https://kherrick.github.io/minimal-c-sharp-wasm/</a></li>
-        <li><a href="https://kherrick.github.io/postview/">https://kherrick.github.io/postview/</a></li>
-        <li><a href="https://kherrick.github.io/pwgen/">https://kherrick.github.io/pwgen/</a></li>
-        <li><a href="https://kherrick.github.io/x-php/">https://kherrick.github.io/x-php/</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="https://kherrick.github.io/apps/">Apps</a>
-      <ul>
-        <li><a href="https://kherrick.github.io/apps/about/">https://kherrick.github.io/apps/about/</a></li>
-        <li><a href="https://kherrick.github.io/apps/calculator/">https://kherrick.github.io/apps/calculator/</a></li>
-        <li>
-          <a href="https://kherrick.github.io/apps/feeds/">https://kherrick.github.io/apps/feeds/</a>
-          <ul>
-            <li><a href="https://kherrick.github.io/apps/feeds/herrick-design/">https://kherrick.github.io/apps/feeds/herrick-design/</a>
-            </li>
-            <li><a href="https://kherrick.github.io/apps/feeds/infinitym/">https://kherrick.github.io/apps/feeds/infinitym/</a>
-            </li>
-            <li><a href="https://kherrick.github.io/apps/feeds/karl-herrick/">https://kherrick.github.io/apps/feeds/karl-herrick/</a>
-            </li>
-          </ul>
-        </li>
-        <li><a href="https://kherrick.github.io/apps/links/">https://kherrick.github.io/apps/links/</a></li>
-        <li>
-          <a href="https://kherrick.github.io/apps/news/">https://kherrick.github.io/apps/news/</a>
-          <ul>
-            <li><a href="https://kherrick.github.io/apps/news/hacker-news/">https://kherrick.github.io/apps/news/hacker-news/</a>
-            </li>
-            <li><a href="https://kherrick.github.io/apps/news/lobsters/">https://kherrick.github.io/apps/news/lobsters/</a>
-            </li>
-            <li><a href="https://kherrick.github.io/apps/news/slashdot/">https://kherrick.github.io/apps/news/slashdot/</a>
-            </li>
-            <li><a href="https://kherrick.github.io/apps/news/soylent-news/">https://kherrick.github.io/apps/news/soylent-news/</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="https://kherrick.github.io/apps/playground/">https://kherrick.github.io/apps/playground/</a>
-          <ul>
-            <li><a href="https://kherrick.github.io/apps/playground/background-removal/">https://kherrick.github.io/apps/playground/background-removal/</a>
-            </li>
-            <li><a href="https://kherrick.github.io/apps/playground/block-garden/">https://kherrick.github.io/apps/playground/block-garden/</a>
-            </li>
-            <li><a href="https://kherrick.github.io/apps/playground/canvas-image-manipulation/">https://kherrick.github.io/apps/playground/canvas-image-manipulation/</a>
-            </li>
-            <li><a href="https://kherrick.github.io/apps/playground/certificates/">https://kherrick.github.io/apps/playground/certificates/</a>
-            </li>
-            <li><a href="https://kherrick.github.io/apps/playground/encryption/">https://kherrick.github.io/apps/playground/encryption/</a>
-            </li>
-            <li><a href="https://kherrick.github.io/apps/playground/peer/">https://kherrick.github.io/apps/playground/peer/</a>
-            </li>
-            <li><a href="https://kherrick.github.io/apps/playground/signature-detection/">https://kherrick.github.io/apps/playground/signature-detection/</a>
-            </li>
-            <li><a href="https://kherrick.github.io/apps/playground/sprite-garden/">https://kherrick.github.io/apps/playground/sprite-garden/</a>
-            </li>
-          </ul>
-        </li>
-        <li><a href="https://kherrick.github.io/apps/pwgen/">https://kherrick.github.io/apps/pwgen/</a></li>
-        <li>
-          <a href="https://kherrick.github.io/apps/slides/slides/">https://kherrick.github.io/apps/slides/slides/</a>
-          <ul>
-            <li>
-              <a href="https://kherrick.github.io/apps/slides/progressive-web-apps/?n=0">https://kherrick.github.io/apps/slides/progressive-web-apps/?n=0</a>
-              <ul>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/1/?n=1">https://kherrick.github.io/apps/slides/progressive-web-apps/1/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/2/?n=1">https://kherrick.github.io/apps/slides/progressive-web-apps/2/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/3/?n=1">https://kherrick.github.io/apps/slides/progressive-web-apps/3/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/4/?n=1">https://kherrick.github.io/apps/slides/progressive-web-apps/4/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/5/?n=1">https://kherrick.github.io/apps/slides/progressive-web-apps/5/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/6/?n=7">https://kherrick.github.io/apps/slides/progressive-web-apps/6/?n=7</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/7/?n=7">https://kherrick.github.io/apps/slides/progressive-web-apps/7/?n=7</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/8/?n=1">https://kherrick.github.io/apps/slides/progressive-web-apps/8/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/9/?n=1">https://kherrick.github.io/apps/slides/progressive-web-apps/9/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/10/?n=3">https://kherrick.github.io/apps/slides/progressive-web-apps/10/?n=3</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/11/?n=3">https://kherrick.github.io/apps/slides/progressive-web-apps/11/?n=3</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/12/?n=3">https://kherrick.github.io/apps/slides/progressive-web-apps/12/?n=3</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/13/?n=3">https://kherrick.github.io/apps/slides/progressive-web-apps/13/?n=3</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/14/?n=4">https://kherrick.github.io/apps/slides/progressive-web-apps/14/?n=4</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/15/?n=4">https://kherrick.github.io/apps/slides/progressive-web-apps/15/?n=4</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/16/?n=4">https://kherrick.github.io/apps/slides/progressive-web-apps/16/?n=4</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/17/?n=3">https://kherrick.github.io/apps/slides/progressive-web-apps/17/?n=3</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/18/?n=3">https://kherrick.github.io/apps/slides/progressive-web-apps/18/?n=3</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/19/?n=3">https://kherrick.github.io/apps/slides/progressive-web-apps/19/?n=3</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/20/?n=4">https://kherrick.github.io/apps/slides/progressive-web-apps/20/?n=4</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/21/?n=1">https://kherrick.github.io/apps/slides/progressive-web-apps/21/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/22/?n=1">https://kherrick.github.io/apps/slides/progressive-web-apps/22/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/23/?n=1">https://kherrick.github.io/apps/slides/progressive-web-apps/23/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/24/?n=1">https://kherrick.github.io/apps/slides/progressive-web-apps/24/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/25/?n=1">https://kherrick.github.io/apps/slides/progressive-web-apps/25/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/26/?n=1">https://kherrick.github.io/apps/slides/progressive-web-apps/26/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/27/?n=8">https://kherrick.github.io/apps/slides/progressive-web-apps/27/?n=8</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/28/?n=14">https://kherrick.github.io/apps/slides/progressive-web-apps/28/?n=14</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/progressive-web-apps/end/?n=1">https://kherrick.github.io/apps/slides/progressive-web-apps/end/?n=1</a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/?n=0">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/?n=0</a>
-              <ul>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/1/?n=11">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/1/?n=11</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/2/?n=4">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/2/?n=4</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/3/?n=7">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/3/?n=7</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/4/?n=11">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/4/?n=11</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/5/?n=4">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/5/?n=4</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/6/?n=4">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/6/?n=4</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/7/?n=9">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/7/?n=9</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/8/?n=3">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/8/?n=3</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/9/?n=2">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/9/?n=2</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/10/?n=1">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/10/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/11/?n=1">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/11/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/12/?n=4">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/12/?n=4</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/13/?n=1">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/13/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/14/?n=1">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/14/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/15/?n=1">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/15/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/16/?n=0">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/16/?n=0</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/17/?n=1">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/17/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/18/?n=1">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/18/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/19/?n=1">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/19/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/20/?n=1">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/20/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/21/?n=1">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/21/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/22/?n=1">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/22/?n=1</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/23/?n=3">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/23/?n=3</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/24/?n=3">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/24/?n=3</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/25/?n=3">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/25/?n=3</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/26/?n=3">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/26/?n=3</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/27/?n=4">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/27/?n=4</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/28/?n=4">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/28/?n=4</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/29/?n=4">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/29/?n=4</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/30/?n=3">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/30/?n=3</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/31/?n=3">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/31/?n=3</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/32/?n=9">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/32/?n=9</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/33/?n=9">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/33/?n=9</a>
-                </li>
-                <li><a href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/end/?n=1">https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/end/?n=1</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li>
-      Other
-      <ul>
-        <li><a href="https://kherrick.github.io/canvas-image-manipulation/">https://kherrick.github.io/canvas-image-manipulation/</a></li>
-        <li><a href="https://kherrick.github.io/material-design-lite/">https://kherrick.github.io/material-design-lite/</a></li>
-        <li><a href="https://kherrick.github.io/maze/">https://kherrick.github.io/maze/</a></li>
-        <li><a href="https://kherrick.github.io/NgRxElementDemo/">https://kherrick.github.io/NgRxElementDemo/</a></li>
-        <li><a href="https://kherrick.github.io/tfjs-component-playground/">https://kherrick.github.io/tfjs-component-playground/</a></li>
-        <li><a href="https://kherrick.github.io/web-components-starter/">https://kherrick.github.io/web-components-starter/</a></li>
-        <li><a href="https://kherrick.github.io/x-postpress-code/">https://kherrick.github.io/x-postpress-code/</a></li>
-        <li><a href="https://kherrick.github.io/x-weather-app/">https://kherrick.github.io/x-weather-app/</a></li>
-        <li>
-          <a href="https://kherrick.github.io/x-app/">https://kherrick.github.io/x-app/</a>
-          <ul>
-            <li><a href="https://kherrick.github.io/x-app/2024/12/first-post/">https://kherrick.github.io/x-app/2024/12/first-post/</a></li>
-            <li><a href="https://kherrick.github.io/x-app/2025/01/aurora-borealis/">https://kherrick.github.io/x-app/2025/01/aurora-borealis/</a></li>
-            <li><a href="https://kherrick.github.io/x-app/2025/01/exercising-xslt/">https://kherrick.github.io/x-app/2025/01/exercising-xslt/</a></li>
-            <li><a href="https://kherrick.github.io/x-app/2025/01/xpath-in-action/">https://kherrick.github.io/x-app/2025/01/xpath-in-action/</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="https://kherrick.github.io/x-ml-data/">https://kherrick.github.io/x-ml-data/</a>
-          <ul>
-            <li><a href="https://kherrick.github.io/x-ml-data/2024/12/first-post/">https://kherrick.github.io/x-ml-data/2024/12/first-post/</a></li>
-            <li><a href="https://kherrick.github.io/x-ml-data/2025/01/aurora-borealis/">https://kherrick.github.io/x-ml-data/2025/01/aurora-borealis/</a></li>
-            <li><a href="https://kherrick.github.io/x-ml-data/2025/01/exercising-xslt/">https://kherrick.github.io/x-ml-data/2025/01/exercising-xslt/</a></li>
-            <li><a href="https://kherrick.github.io/x-ml-data/2025/01/xpath-in-action/">https://kherrick.github.io/x-ml-data/2025/01/xpath-in-action/</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</body>
+      .sitemap__item {
+        margin-top: 0.25rem;
+      }
+
+      .sitemap__link {
+        color: #000;
+        text-decoration: underline;
+      }
+
+      .sitemap__link:visited {
+        color: #999;
+      }
+
+      .sitemap__link:hover,
+      .sitemap__link:focus {
+        color: #555;
+        outline: none;
+        text-decoration: none;
+        background-color: #f0f0f0;
+      }
+
+      .sitemap__category {
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-top: 1rem;
+        display: block;
+      }
+
+      pre {
+        overflow: auto;
+      }
+
+      code {
+        text-wrap: auto;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="nav-section">
+      <h1 class="nav-section__title">
+        <a href="https://kherrick.github.io/">kherrick.github.io</a>
+      </h1>
+    </header>
+
+    <main>
+      <h2>Site Pages</h2>
+
+      <nav aria-label="Site Map">
+        <ul class="sitemap">
+          <li>
+            <span class="sitemap__category">Games</span>
+            <ul class="sitemap__list">
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/block-garden/"
+                  >Block Garden</a
+                >
+                <ul class="sitemap__list">
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/block-garden/about/"
+                      >About Block Garden</a
+                    >
+                  </li>
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/block-garden/privacy/"
+                      >Privacy Policy</a
+                    >
+                  </li>
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/block-garden/src/api/examples/"
+                      >API Examples</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/sprite-garden/"
+                  >Sprite Garden</a
+                >
+                <ul class="sitemap__list">
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/sprite-garden/about/"
+                      >About Sprite Garden</a
+                    >
+                  </li>
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/sprite-garden/privacy/"
+                      >Privacy Policy</a
+                    >
+                  </li>
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/sprite-garden/src/api/examples/"
+                      >API Examples</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span class="sitemap__category">News</span>
+            <ul class="sitemap__list">
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/news-summary-browser/"
+                  >News Summary Browser</a
+                >
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/news-summary/"
+                  >News Summary</a
+                >
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/hacker-news/"
+                  >Hacker News</a
+                >
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/lobsters/"
+                  >Lobsters</a
+                >
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/slashdot/"
+                  >Slashdot</a
+                >
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/soylent-news/"
+                  >Soylent News</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span class="sitemap__category">Wasm</span>
+            <ul class="sitemap__list">
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/c-sharp-wasm-components/"
+                  >C# Wasm Components</a
+                >
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/minimal-c-sharp-wasm/"
+                  >Minimal C# Wasm</a
+                >
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/postview/"
+                  >Postview</a
+                >
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/pwgen/"
+                  >Password Generator</a
+                >
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/x-php/"
+                  >X-PHP</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span class="sitemap__category">Apps</span>
+            <ul class="sitemap__list">
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/apps/about/"
+                  >About Apps</a
+                >
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/apps/calculator/"
+                  >Calculator</a
+                >
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/apps/feeds/"
+                  >Feeds</a
+                >
+                <ul class="sitemap__list">
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/apps/feeds/herrick-design/"
+                      >Herrick Design Feed</a
+                    >
+                  </li>
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/apps/feeds/infinitym/"
+                      >Infinitym Feed</a
+                    >
+                  </li>
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/apps/feeds/karl-herrick/"
+                      >Karl Herrick Feed</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/apps/links/"
+                  >Links</a
+                >
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/apps/news/"
+                  >News App</a
+                >
+                <ul class="sitemap__list">
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/apps/news/hacker-news/"
+                      >Hacker News App</a
+                    >
+                  </li>
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/apps/news/lobsters/"
+                      >Lobsters App</a
+                    >
+                  </li>
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/apps/news/slashdot/"
+                      >Slashdot App</a
+                    >
+                  </li>
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/apps/news/soylent-news/"
+                      >Soylent News App</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/apps/playground/"
+                  >Playground</a
+                >
+                <ul class="sitemap__list">
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/apps/playground/background-removal/"
+                      >Background Removal</a
+                    >
+                  </li>
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/apps/playground/block-garden/"
+                      >Block Garden Playground</a
+                    >
+                  </li>
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/apps/playground/canvas-image-manipulation/"
+                      >Canvas Image Manipulation</a
+                    >
+                  </li>
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/apps/playground/certificates/"
+                      >Certificates</a
+                    >
+                  </li>
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/apps/playground/encryption/"
+                      >Encryption</a
+                    >
+                  </li>
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/apps/playground/peer/"
+                      >Peer Connection</a
+                    >
+                  </li>
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/apps/playground/signature-detection/"
+                      >Signature Detection</a
+                    >
+                  </li>
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/apps/playground/sprite-garden/"
+                      >Sprite Garden Playground</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/apps/pwgen/"
+                  >Password Generator App</a
+                >
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/apps/slides/slides/"
+                  >Slides</a
+                >
+                <ul class="sitemap__list">
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/apps/slides/progressive-web-apps/?n=0"
+                      >Progressive Web Apps Slides</a
+                    >
+                    <ul class="sitemap__list">
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/1/?n=1"
+                          >Foundations - Graceful Degration</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/2/?n=1"
+                          >Foundations - Progressive Enhancement</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/3/?n=1"
+                          >Foundations - Responsive Web Design</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/4/?n=1"
+                          >Foundations - Mobile First</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/5/?n=1"
+                          >Foundations - Offline First</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/6/?n=7"
+                          >Bringing The Best Of Both Worlds</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/7/?n=7"
+                          >Bringing The Best Of Both Worlds</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/8/?n=1"
+                          >What Is It?</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/9/?n=1"
+                          >What Is It?</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/10/?n=3"
+                          >Baseline
+                        </a>
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/11/?n=3"
+                          >Baseline</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/12/?n=3"
+                          >Good To Haves</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/13/?n=3"
+                          >Good To Haves</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/14/?n=4"
+                          >A+ Progressive Web Apps</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/15/?n=4"
+                          >Why Build One?</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/16/?n=4"
+                          >Why Build One?</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/17/?n=3"
+                          >PWA Architecture Patterns</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/18/?n=3"
+                          >PWA Architecture Patterns</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/19/?n=3"
+                          >Installation</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/20/?n=4"
+                          >Post Installation Expectations</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/21/?n=1"
+                          >Installation On Windows Using Microsoft Edge</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/22/?n=1"
+                          >Installation On Android Using Microsoft Edge</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/23/?n=1"
+                          >Installation On Android Using Google Chrome</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/24/?n=1"
+                          >Push Notifications</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/25/?n=1"
+                          >Push Notifications On Android Using Chrome</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/26/?n=1"
+                          >Push Notifications On Windows Using Chrome</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/27/?n=8"
+                          >Additional Example Service Worker Strategies</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/28/?n=14"
+                          >Further Info</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/end/?n=1"
+                          >The End</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/?n=0"
+                      >Rendering, App Shells, and PWAs, Oh My!</a
+                    >
+                    <ul class="sitemap__list">
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/1/?n=11"
+                          >There Are Many Different Ways To Render - Server Side
+                          Rendering</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/2/?n=4"
+                          >Server Side Rendering - Pros</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/3/?n=7"
+                          >Server Side Rendering - Cons</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/4/?n=11"
+                          >There Are Many Different Ways To Render - Client Side
+                          Rendering</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/5/?n=4"
+                          >Client Side Rendering - Pros</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/6/?n=4"
+                          >Client Side Rendering - Cons</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/7/?n=9"
+                          >There Are Many Different Ways To Render - Static Site
+                          Generation (And Pre-Rendering)</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/8/?n=3"
+                          >Static Site Generation (And Pre-Rendering) - Pros</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/9/?n=2"
+                          >Static Site Generation (And Pre-Rendering) - Cons</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/10/?n=1"
+                          >Distinctions Between Static Rendering And
+                          Pre-Rendering</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/11/?n=1"
+                          >Distinctions Between Static Rendering And
+                          Pre-Rendering</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/12/?n=4"
+                          >Combinations</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/13/?n=1"
+                          >Service Workers And Streams - The Year Of Web
+                          Streams</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/14/?n=1"
+                          >Service Workers And Streams - Streaming Responses</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/15/?n=1"
+                          >Service Workers And Streams - Trimorphic Rendering</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/16/?n=0"
+                          >App Shell</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/17/?n=1"
+                          >What Is An App Shell - Michael Geers</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/18/?n=1"
+                          >What Is An App Shell - Tal Ater</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/19/?n=1"
+                          >What Is An App Shell - Angular</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/20/?n=1"
+                          >What Is An App Shell - Google</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/21/?n=1"
+                          >What Is An App Shell - MDN</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/22/?n=1"
+                          >Progressive Web Apps - What Are They</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/23/?n=3"
+                          >Progressive Web Apps - Baseline</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/24/?n=3"
+                          >Progressive Web Apps - Baseline</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/25/?n=3"
+                          >Progressive Web Apps - Good To Haves</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/26/?n=3"
+                          >Progressive Web Apps - Good To Haves</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/27/?n=4"
+                          >Progressive Web Apps - A+ Progressive Web Apps</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/28/?n=4"
+                          >Progressive Web Apps - Why Build One?</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/29/?n=4"
+                          >Progressive Web Apps - Why Build One?</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/30/?n=3"
+                          >Progressive Web Apps - PWA Architecture Patterns</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/31/?n=3"
+                          >Progressive Web Apps - PWA Architecture Patterns</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/32/?n=9"
+                          >Progressive Web Apps - Example Service Worker
+                          Strategies</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/33/?n=14"
+                          >Progressive Web Apps - Further Info</a
+                        >
+                      </li>
+                      <li class="sitemap__item">
+                        <a
+                          class="sitemap__link"
+                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/end/?n=1"
+                          >The End</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <span class="sitemap__category">Other</span>
+            <ul class="sitemap__list">
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/canvas-image-manipulation/"
+                  >Canvas Image Manipulation</a
+                >
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/material-design-lite/"
+                  >Material Design Lite</a
+                >
+              </li>
+              <li class="sitemap__item">
+                <a class="sitemap__link" href="https://kherrick.github.io/maze/"
+                  >Maze</a
+                >
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/NgRxElementDemo/"
+                  >NgRx Element Demo</a
+                >
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/tfjs-component-playground/"
+                  >TensorFlow.js Component Playground</a
+                >
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/web-components-starter/"
+                  >Web Components Starter</a
+                >
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/x-postpress-code/"
+                  >X-Postpress Code</a
+                >
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/x-weather-app/"
+                  >X-Weather App</a
+                >
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/x-app/"
+                  >X-App</a
+                >
+                <ul class="sitemap__list">
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/x-app/2024/12/first-post/"
+                      >First Post</a
+                    >
+                  </li>
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/x-app/2025/01/aurora-borealis/"
+                      >Aurora Borealis</a
+                    >
+                  </li>
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/x-app/2025/01/exercising-xslt/"
+                      >Exercising XSLT</a
+                    >
+                  </li>
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/x-app/2025/01/xpath-in-action/"
+                      >XPath in Action</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="sitemap__item">
+                <a
+                  class="sitemap__link"
+                  href="https://kherrick.github.io/x-ml-data/"
+                  >X-ML Data</a
+                >
+                <ul class="sitemap__list">
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/x-ml-data/2024/12/first-post/"
+                      >First Post</a
+                    >
+                  </li>
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/x-ml-data/2025/01/aurora-borealis/"
+                      >Aurora Borealis</a
+                    >
+                  </li>
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/x-ml-data/2025/01/exercising-xslt/"
+                      >Exercising XSLT</a
+                    >
+                  </li>
+                  <li class="sitemap__item">
+                    <a
+                      class="sitemap__link"
+                      href="https://kherrick.github.io/x-ml-data/2025/01/xpath-in-action/"
+                      >XPath in Action</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </main>
+  </body>
 </html>
