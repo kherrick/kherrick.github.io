@@ -49,9 +49,6 @@
     <loc>https://kherrick.github.io/apps/playground/block-garden/</loc>
   </url>
   <url>
-    <loc>https://xt-ml.github.io/shadow-claw/</loc>
-  </url>
-  <url>
     <loc>https://kherrick.github.io/apps/playground/canvas-image-manipulation/</loc>
   </url>
   <url>
@@ -274,13 +271,31 @@
     <loc>https://kherrick.github.io/block-garden/</loc>
   </url>
   <url>
-    <loc>https://kherrick.github.io/block-garden/about/</loc>
-  </url>
-  <url>
     <loc>https://kherrick.github.io/block-garden/privacy/</loc>
   </url>
   <url>
-    <loc>https://kherrick.github.io/block-garden/src/api/examples/</loc>
+    <loc>https://kherrick.github.io/block-garden-knowledge-hub/</loc>
+  </url>
+  <url>
+    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/about</loc>
+  </url>
+  <url>
+    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/api-examples</loc>
+  </url>
+  <url>
+    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/controls</loc>
+  </url>
+  <url>
+    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/demos-and-media</loc>
+  </url>
+  <url>
+    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/farming-and-botany</loc>
+  </url>
+  <url>
+    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/world-saves-and-pdfs</loc>
+  </url>
+  <url>
+    <loc>https://kherrick.github.io/block-garden-knowledge-hub/chat</loc>
   </url>
   <url>
     <loc>https://kherrick.github.io/c-sharp-wasm-components/</loc>
