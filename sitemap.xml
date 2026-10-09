@@ -73,6 +73,36 @@
     <loc>https://kherrick.github.io/pwgen-knowledge-hub/</loc>
   </url>
   <url>
+    <loc>https://kherrick.github.io/pwgen-knowledge-hub/main/</loc>
+  </url>
+  <url>
+    <loc>https://kherrick.github.io/pwgen-knowledge-hub/main/about/</loc>
+  </url>
+  <url>
+    <loc>https://kherrick.github.io/pwgen-knowledge-hub/main/cli-and-flags/</loc>
+  </url>
+  <url>
+    <loc>https://kherrick.github.io/pwgen-knowledge-hub/main/wasm-and-compilation/</loc>
+  </url>
+  <url>
+    <loc>https://kherrick.github.io/pwgen-knowledge-hub/main/custom-element-and-web-integration/</loc>
+  </url>
+  <url>
+    <loc>https://kherrick.github.io/pwgen-knowledge-hub/main/historical-targets-wbn-wapm/</loc>
+  </url>
+  <url>
+    <loc>https://kherrick.github.io/pwgen-knowledge-hub/main/security-entropy-and-sha1/</loc>
+  </url>
+  <url>
+    <loc>https://kherrick.github.io/pwgen-knowledge-hub/main/web-platform-and-performance/</loc>
+  </url>
+  <url>
+    <loc>https://kherrick.github.io/pwgen-knowledge-hub/main/agent-skills-and-tools/</loc>
+  </url>
+  <url>
+    <loc>https://kherrick.github.io/pwgen-knowledge-hub/main/memory/</loc>
+  </url>
+  <url>
     <loc>https://kherrick.github.io/apps/slides/slides/</loc>
   </url>
   <url>
@@ -280,31 +310,34 @@
     <loc>https://kherrick.github.io/block-garden-knowledge-hub/</loc>
   </url>
   <url>
-    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/about</loc>
+    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/</loc>
   </url>
   <url>
-    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/api-examples</loc>
+    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/about/</loc>
   </url>
   <url>
-    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/controls</loc>
+    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/controls/</loc>
   </url>
   <url>
-    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/demos-and-media</loc>
+    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/farming-and-botany/</loc>
   </url>
   <url>
-    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/farming-and-botany</loc>
+    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/api-examples/</loc>
   </url>
   <url>
-    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/web-platform-and-performance</loc>
+    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/demos-and-media/</loc>
   </url>
   <url>
-    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/memory</loc>
+    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/world-saves-and-pdfs/</loc>
   </url>
   <url>
-    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/world-saves-and-pdfs</loc>
+    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/web-platform-and-performance/</loc>
   </url>
   <url>
-    <loc>https://kherrick.github.io/block-garden-knowledge-hub/chat</loc>
+    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/agent-skills-and-tools/</loc>
+  </url>
+  <url>
+    <loc>https://kherrick.github.io/block-garden-knowledge-hub/main/memory/</loc>
   </url>
   <url>
     <loc>https://kherrick.github.io/c-sharp-wasm-components/</loc>
