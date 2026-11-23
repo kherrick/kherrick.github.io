@@ -1,13 +1,22 @@
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>kherrick.github.io</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
     <meta name="description" content="Pages at kherrick.github.io" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      try {
+        const s = localStorage.getItem("color-scheme");
+        if (s === "light" || s === "dark") {
+          document.querySelector('meta[name="color-scheme"]').content = s;
+        }
+      } catch {}
+    </script>
+    <title>kherrick.github.io</title>
     <!--
     <meta
       http-equiv="refresh"
@@ -29,7 +38,129 @@
       href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIAAQMAAADOtka5AAAAA1BMVEUAAACnej3aAAAANklEQVR42u3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8G4IAAAFjdVCkAAAAAElFTkSuQmCC"
     />
     <style>
+      :root {
+        --bg-light: #f6f8fb;
+        --bg-dark: #0b0f17;
+        --surface-light: #ffffff;
+        --surface-dark: #131926;
+        --surface-subtle-light: #eef2f7;
+        --surface-subtle-dark: #1a2233;
+        --text-light: #0f172a;
+        --text-dark: #eef2f8;
+        --muted-light: #475569;
+        --muted-dark: #94a3b8;
+        --border-light: #dbe3ee;
+        --border-dark: #253047;
+        --accent-light: #1d4ed8;
+        --accent-dark: #60a5fa;
+        --accent-soft-light: rgba(29, 78, 216, 0.08);
+        --accent-soft-dark: rgba(96, 165, 250, 0.14);
+        --accent-2-light: #6d28d9;
+        --accent-2-dark: #a78bfa;
+        --topbar-bg-light: rgba(246, 248, 251, 0.86);
+        --topbar-bg-dark: rgba(11, 15, 23, 0.86);
+        --shadow-light:
+          0 1px 2px rgba(15, 23, 42, 0.05),
+          0 8px 24px -12px rgba(15, 23, 42, 0.12);
+        --shadow-dark:
+          0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 28px -12px rgba(0, 0, 0, 0.55);
+
+        --bg: var(--bg-light);
+        --surface: var(--surface-light);
+        --surface-subtle: var(--surface-subtle-light);
+        --text: var(--text-light);
+        --muted: var(--muted-light);
+        --border: var(--border-light);
+        --accent: var(--accent-light);
+        --accent-soft: var(--accent-soft-light);
+        --accent-2: var(--accent-2-light);
+        --topbar-bg: var(--topbar-bg-light);
+        --shadow: var(--shadow-light);
+
+        --scrollbar-track: #e8edf4;
+        --scrollbar-thumb: #64748b;
+
+        color-scheme: light dark;
+      }
+
+      :root:has(> head > meta[name="color-scheme"][content="dark"]) {
+        color-scheme: dark;
+      }
+
+      :root:has(> head > meta[name="color-scheme"][content="light"]) {
+        color-scheme: light;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: var(--bg-dark);
+          --surface: var(--surface-dark);
+          --surface-subtle: var(--surface-subtle-dark);
+          --text: var(--text-dark);
+          --muted: var(--muted-dark);
+          --border: var(--border-dark);
+          --accent: var(--accent-dark);
+          --accent-soft: var(--accent-soft-dark);
+          --accent-2: var(--accent-2-dark);
+          --topbar-bg: var(--topbar-bg-dark);
+          --shadow: var(--shadow-dark);
+          --scrollbar-track: #182030;
+          --scrollbar-thumb: #64748b;
+        }
+      }
+
+      @supports (color: light-dark(white, black)) {
+        :root {
+          --bg: light-dark(var(--bg-light), var(--bg-dark));
+          --surface: light-dark(var(--surface-light), var(--surface-dark));
+          --surface-subtle: light-dark(
+            var(--surface-subtle-light),
+            var(--surface-subtle-dark)
+          );
+          --text: light-dark(var(--text-light), var(--text-dark));
+          --muted: light-dark(var(--muted-light), var(--muted-dark));
+          --border: light-dark(var(--border-light), var(--border-dark));
+          --accent: light-dark(var(--accent-light), var(--accent-dark));
+          --accent-soft: light-dark(
+            var(--accent-soft-light),
+            var(--accent-soft-dark)
+          );
+          --accent-2: light-dark(var(--accent-2-light), var(--accent-2-dark));
+          --topbar-bg: light-dark(
+            var(--topbar-bg-light),
+            var(--topbar-bg-dark)
+          );
+          --shadow: light-dark(var(--shadow-light), var(--shadow-dark));
+          --scrollbar-track: light-dark(#e8edf4, #182030);
+          --scrollbar-thumb: light-dark(#64748b, #8192aa);
+        }
+      }
+
+      :root {
+        accent-color: var(--accent);
+        scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+      }
+
+      html {
+        container-type: scroll-state;
+        scroll-behavior: smooth;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
       body {
+        margin: 0;
+        min-height: 100dvh;
         font-family:
           system-ui,
           -apple-system,
@@ -39,1256 +170,3242 @@
           Oxygen,
           Ubuntu,
           Cantarell,
-          "Open Sans",
           "Helvetica Neue",
           sans-serif;
-        line-height: 1.5;
-        margin: auto;
-        max-width: 50rem;
-        padding: 0 1rem;
-        color: #000;
-      }
-
-      .nav-section {
-        margin-bottom: 2rem;
-      }
-
-      .nav-section__title {
-        display: flex;
-        justify-content: space-between;
-        border-bottom: 1px solid #ccc;
-        padding-bottom: 0.5rem;
-      }
-
-      .nav-section__title a,
-      .nav-section__title a:visited {
-        color: #000;
-        text-decoration: none;
-      }
-
-      .nav-section__title a:hover,
-      .nav-section__title a:focus {
-        text-decoration: underline;
-      }
-
-      .sitemap {
-        list-style-type: none;
-        padding-left: 0;
-      }
-
-      .sitemap__list {
-        list-style-type: disc;
-        padding-left: 1.5rem;
-      }
-
-      .sitemap__item {
-        margin-top: 0.25rem;
-      }
-
-      .sitemap__link {
-        color: #000;
-        text-decoration: underline;
-      }
-
-      .sitemap__link:visited {
-        color: #999;
-      }
-
-      .sitemap__link:hover,
-      .sitemap__link:focus {
-        color: #555;
-        outline: none;
-        text-decoration: none;
-        background-color: #f0f0f0;
-      }
-
-      .sitemap__category {
-        font-weight: bold;
-        font-size: 1.1rem;
-        margin-top: 1rem;
-        display: block;
-      }
-
-      pre {
-        overflow: auto;
+        line-height: 1.55;
+        color: var(--text);
+        background-color: var(--bg);
+        background-image: radial-gradient(
+          ellipse 90% 45% at 50% -10%,
+          var(--accent-soft),
+          transparent 70%
+        );
       }
 
       code {
-        text-wrap: auto;
+        font-family:
+          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.875em;
+        padding: 0.12em 0.4em;
+        border-radius: 0.3rem;
+        background: var(--surface-subtle);
+        border: 1px solid var(--border);
+        overflow-wrap: anywhere;
+      }
+
+      a {
+        color: var(--accent);
+        text-underline-offset: 0.18em;
+      }
+
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible,
+      summary:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .skip-link {
+        position: fixed;
+        top: 0.5rem;
+        left: 0.75rem;
+        z-index: 50;
+        padding: 0.55rem 0.9rem;
+        border-radius: 0.5rem;
+        background: var(--accent);
+        color: #ffffff;
+        font-weight: 600;
+        text-decoration: none;
+        transform: translateY(-200%);
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      /* Compact Sticky Top Bar */
+      .top-bar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: var(--topbar-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        transition: transform 0.22s ease;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .top-bar {
+          transition: none;
+        }
+      }
+
+      @container scroll-state((scrolled: bottom) and (scrollable: top)) {
+        .top-bar {
+          transform: translateY(-100%);
+        }
+      }
+
+      .top-bar.is-hidden:not(:focus-within) {
+        transform: translateY(-100%);
+      }
+
+      .top-bar:focus-within {
+        transform: none;
+      }
+
+      .top-bar__inner {
+        max-width: 76rem;
+        margin-inline: auto;
+        padding: 0.55rem clamp(1rem, 3vw, 2rem);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        min-height: 3.5rem;
+      }
+
+      .brand {
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--text);
+        text-decoration: none;
+        white-space: nowrap;
+        font-size: 1rem;
+      }
+
+      .brand:hover {
+        color: var(--accent);
+      }
+
+      .cat-nav {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        overflow-x: auto;
+        scrollbar-width: none;
+        flex: 1 1 auto;
+      }
+
+      .cat-nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .cat-nav a {
+        padding: 0.35rem 0.65rem;
+        border-radius: 999px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--muted);
+        text-decoration: none;
+        white-space: nowrap;
+      }
+
+      .cat-nav a:hover {
+        color: var(--text);
+        background: var(--surface-subtle);
+      }
+
+      .top-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-shrink: 0;
+      }
+
+      .search-wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .search-input {
+        width: clamp(8.5rem, 18vw, 15rem);
+        height: 2.25rem;
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text);
+        font-size: 0.875rem;
+      }
+
+      .search-input::placeholder {
+        color: var(--muted);
+      }
+
+      .icon-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        min-width: 2.35rem;
+        height: 2.35rem;
+        padding: 0 0.65rem;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text);
+        cursor: pointer;
+        font: inherit;
+        font-size: 0.875rem;
+        font-weight: 500;
+      }
+
+      .icon-btn:hover {
+        background: var(--surface-subtle);
+        border-color: var(--muted);
+      }
+
+      @media (pointer: coarse) {
+        .icon-btn,
+        .cat-nav a,
+        .deck-btn {
+          min-height: 44px;
+          min-width: 44px;
+        }
+      }
+
+      /* Theme toggle icon visibility aligned to active meta / OS preference */
+      .theme-toggle .icon-sun {
+        display: none;
+      }
+      .theme-toggle .icon-moon {
+        display: inline-flex;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root:not(:has(> head > meta[name="color-scheme"][content="light"]))
+          .theme-toggle
+          .icon-sun {
+          display: inline-flex;
+        }
+        :root:not(:has(> head > meta[name="color-scheme"][content="light"]))
+          .theme-toggle
+          .icon-moon {
+          display: none;
+        }
+      }
+
+      :root:has(> head > meta[name="color-scheme"][content="dark"])
+        .theme-toggle
+        .icon-sun {
+        display: inline-flex;
+      }
+      :root:has(> head > meta[name="color-scheme"][content="dark"])
+        .theme-toggle
+        .icon-moon {
+        display: none;
+      }
+
+      /* Page Shell */
+      .container {
+        max-width: 76rem;
+        margin-inline: auto;
+        padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 3vw, 2rem) 4rem;
+      }
+
+      .hero {
+        margin-bottom: 2.25rem;
+        padding: clamp(1.25rem, 3vw, 2rem);
+        border-radius: 1.15rem;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        box-shadow: var(--shadow);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 1.25rem;
+      }
+
+      .hero h1 {
+        margin: 0 0 0.35rem;
+        font-size: clamp(1.65rem, 3.5vw, 2.35rem);
+        letter-spacing: -0.03em;
+        line-height: 1.15;
+      }
+
+      .hero p {
+        margin: 0;
+        color: var(--muted);
+        max-width: 56ch;
+      }
+
+      .hero-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .stat-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--surface-subtle);
+        font-size: 0.8125rem;
+        font-weight: 600;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .filter-status-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+        padding: 0.65rem 1rem;
+        border-radius: 0.75rem;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        font-size: 0.875rem;
+      }
+
+      .filter-status-bar[hidden] {
+        display: none;
+      }
+
+      .clear-btn {
+        border: 1px solid var(--border);
+        background: var(--surface-subtle);
+        color: var(--text);
+        border-radius: 999px;
+        padding: 0.25rem 0.75rem;
+        font: inherit;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      /* Sections */
+      :target,
+      section[id] {
+        scroll-margin-top: 4.5rem;
+      }
+
+      .category-section {
+        margin-top: 2.75rem;
+      }
+
+      .category-section[hidden] {
+        display: none;
+      }
+
+      .section-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.5rem 1rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .section-header h2 {
+        margin: 0;
+        font-size: clamp(1.2rem, 2vw, 1.45rem);
+        letter-spacing: -0.02em;
+      }
+
+      .section-meta {
+        font-size: 0.875rem;
+        color: var(--muted);
+      }
+
+      /* Responsive Card Grid */
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr));
+        gap: 1rem;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.65rem;
+        padding: 1.1rem 1.15rem;
+        border-radius: 0.9rem;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        box-shadow: var(--shadow);
+        transition:
+          border-color 0.16s ease,
+          transform 0.16s ease;
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        .card:hover {
+          transform: translateY(-2px);
+          border-color: var(--accent);
+        }
+      }
+
+      .card[hidden],
+      .chip-item[hidden],
+      .hub-item[hidden],
+      .slide-item[hidden] {
+        display: none;
+      }
+
+      .card--wide {
+        grid-column: 1 / -1;
+      }
+
+      .card-title-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 0.65rem;
+      }
+
+      .card h3 {
+        margin: 0;
+        font-size: 1.05rem;
+        line-height: 1.3;
+      }
+
+      .card h3 a {
+        color: var(--text);
+        text-decoration: none;
+      }
+
+      .card h3 a:hover {
+        color: var(--accent);
+        text-decoration: underline;
+      }
+
+      .badge {
+        flex-shrink: 0;
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 0.15rem 0.55rem;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .card-desc {
+        margin: 0;
+        font-size: 0.875rem;
+        color: var(--muted);
+      }
+
+      .chip-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        list-style: none;
+        margin: 0.15rem 0 0;
+        padding: 0;
+      }
+
+      .chip-link {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.28rem 0.65rem;
+        border-radius: 0.5rem;
+        border: 1px solid var(--border);
+        background: var(--surface-subtle);
+        color: var(--text);
+        text-decoration: none;
+        font-size: 0.8125rem;
+        font-weight: 500;
+      }
+
+      .chip-link:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      /* Accessible Disclosure Accordion for Knowledge Hubs */
+      .hub-details {
+        margin-top: 0.25rem;
+        border: 1px solid var(--border);
+        border-radius: 0.75rem;
+        background: var(--surface-subtle);
+      }
+
+      .hub-details summary {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 0.6ch;
+        padding: 0.7rem 0.95rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .hub-details summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .hub-details summary::before {
+        content: "";
+        inline-size: 1em;
+        block-size: 1em;
+        flex-shrink: 0;
+        background-color: currentColor;
+        mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='black' d='M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z'/%3E%3C/svg%3E")
+          no-repeat center / contain;
+        rotate: -90deg;
+      }
+
+      .hub-details summary:dir(rtl)::before {
+        rotate: 90deg;
+      }
+
+      .hub-details[open] > summary::before {
+        rotate: 0deg;
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        .hub-details summary::before {
+          transition: rotate 0.2s ease;
+        }
+      }
+
+      .hub-details::details-content {
+        interpolate-size: allow-keywords;
+        overflow: clip;
+        contain: layout;
+      }
+
+      .hub-details:not([open])::details-content {
+        block-size: 0;
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        .hub-details::details-content {
+          transition: block-size, content-visibility, display;
+          transition-duration: 0.26s;
+          transition-timing-function: ease-in-out;
+          transition-behavior: allow-discrete;
+        }
+      }
+
+      .hub-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr));
+        gap: 0.75rem;
+        list-style: none;
+        margin: 0;
+        padding: 0.25rem 0.95rem 0.95rem;
+      }
+
+      .hub-item {
+        padding: 0.8rem 0.9rem;
+        border-radius: 0.65rem;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        font-size: 0.875rem;
+      }
+
+      .hub-item-title {
+        display: inline-block;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+
+      .hub-item-desc {
+        display: block;
+        color: var(--muted);
+        margin-top: 0.25rem;
+      }
+
+      /* Creative Slide Deck Filmstrip Showcase */
+      .decks-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .deck-card {
+        padding: 1.25rem;
+        border-radius: 1rem;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        box-shadow: var(--shadow);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .deck-card[hidden] {
+        display: none;
+      }
+
+      .deck-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem 1rem;
+      }
+
+      .deck-title-group {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .deck-title-group h3 {
+        margin: 0;
+        font-size: 1.15rem;
+        letter-spacing: -0.015em;
+      }
+
+      .deck-title-group h3 a {
+        color: var(--text);
+        text-decoration: none;
+      }
+
+      .deck-title-group h3 a:hover {
+        color: var(--accent);
+        text-decoration: underline;
+      }
+
+      .deck-launch {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.45rem 0.9rem;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      .deck-launch:hover {
+        filter: brightness(1.08);
+      }
+
+      .deck-toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.65rem;
+        padding: 0.6rem 0.75rem;
+        border-radius: 0.75rem;
+        background: var(--surface-subtle);
+        border: 1px solid var(--border);
+      }
+
+      .deck-filter-group {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        flex: 1 1 14rem;
+      }
+
+      .deck-filter {
+        width: 100%;
+        max-width: 20rem;
+        height: 2.1rem;
+        padding: 0.25rem 0.7rem;
+        border-radius: 0.5rem;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text);
+        font-size: 0.85rem;
+      }
+
+      .deck-match-count {
+        font-size: 0.8rem;
+        color: var(--muted);
+        white-space: nowrap;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .deck-controls {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .deck-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.3rem;
+        height: 2.1rem;
+        padding: 0 0.65rem;
+        border-radius: 0.5rem;
+        border: 1px solid var(--border);
+        background: var(--surface);
+        color: var(--text);
+        font: inherit;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .deck-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      .deck-btn[aria-pressed="true"] {
+        background: var(--accent);
+        color: #ffffff;
+        border-color: var(--accent);
+      }
+
+      /* Filmstrip Horizontal Carousel vs Grid Slide Sorter */
+      .slide-filmstrip {
+        display: flex;
+        gap: 0.85rem;
+        overflow-x: auto;
+        scroll-snap-type: x proximity;
+        touch-action: pan-x;
+        list-style: none;
+        margin: 0;
+        padding: 0.25rem 0.15rem 0.75rem;
+        scrollbar-width: thin;
+      }
+
+      .slide-filmstrip.is-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr));
+        overflow-x: visible;
+        scroll-snap-type: none;
+        padding-bottom: 0.15rem;
+      }
+
+      .slide-item {
+        flex: 0 0 14.5rem;
+        scroll-snap-align: start;
+        display: flex;
+      }
+
+      .slide-filmstrip.is-grid .slide-item {
+        flex: initial;
+      }
+
+      .slide-card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 8.5rem;
+        padding: 0.85rem 0.9rem 0.75rem;
+        border-radius: 0.7rem;
+        border: 1px solid var(--border);
+        background: var(--surface-subtle);
+        color: var(--text);
+        text-decoration: none;
+        overflow: hidden;
+        transition:
+          border-color 0.16s ease,
+          transform 0.16s ease,
+          background-color 0.16s ease;
+      }
+
+      .slide-card::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        opacity: 0.75;
+      }
+
+      @media (prefers-reduced-motion: no-preference) {
+        .slide-card:hover {
+          transform: translateY(-2px);
+          border-color: var(--accent);
+          background: var(--surface);
+        }
+      }
+
+      .slide-card-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        margin-bottom: 0.45rem;
+      }
+
+      .slide-num {
+        font-family:
+          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 0.12rem 0.45rem;
+        border-radius: 0.35rem;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        color: var(--accent);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .slide-query {
+        font-family:
+          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.72rem;
+        color: var(--muted);
+      }
+
+      .slide-title {
+        font-size: 0.875rem;
+        font-weight: 600;
+        line-height: 1.35;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .slide-open-hint {
+        margin-top: 0.55rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: var(--muted);
+      }
+
+      .slide-card:hover .slide-open-hint {
+        color: var(--accent);
+      }
+
+      .site-footer {
+        margin-top: 3.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        color: var(--muted);
+        font-size: 0.875rem;
+      }
+
+      @media (max-width: 640px) {
+        .top-bar__inner {
+          flex-wrap: wrap;
+          gap: 0.45rem;
+        }
+        .cat-nav {
+          order: 3;
+          flex-basis: 100%;
+          padding-bottom: 0.15rem;
+        }
+        .top-actions {
+          margin-left: auto;
+        }
       }
     </style>
   </head>
 
   <body>
-    <header class="nav-section">
-      <h1 class="nav-section__title">
-        <a href="https://kherrick.github.io/">kherrick.github.io</a>
-      </h1>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="top-bar">
+      <div class="top-bar__inner">
+        <a class="brand" href="https://kherrick.github.io/"
+          >kherrick.github.io</a
+        >
+
+        <nav class="cat-nav" aria-label="Section navigation">
+          <a href="#games">Games</a>
+          <a href="#news">News</a>
+          <a href="#wasm">Wasm</a>
+          <a href="#apps">Apps</a>
+          <a href="#slides">Slides</a>
+          <a href="#other">Other</a>
+        </nav>
+
+        <div class="top-actions">
+          <div class="search-wrap">
+            <label for="global-filter" class="sr-only"
+              >Filter pages and slides</label
+            >
+            <input
+              id="global-filter"
+              class="search-input"
+              type="search"
+              placeholder="Filter pages..."
+              autocomplete="off"
+            />
+          </div>
+
+          <button
+            type="button"
+            class="icon-btn theme-toggle"
+            id="theme-toggle"
+            aria-label="Toggle color theme"
+          >
+            <span class="icon-moon" aria-hidden="true">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+              </svg>
+            </span>
+            <span class="icon-sun" aria-hidden="true">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="4" />
+                <path d="M12 2v2" />
+                <path d="M12 20v2" />
+                <path d="m4.93 4.93 1.41 1.41" />
+                <path d="m17.66 17.66 1.41 1.41" />
+                <path d="M2 12h2" />
+                <path d="M20 12h2" />
+                <path d="m6.34 17.66-1.41 1.41" />
+                <path d="m19.07 4.93-1.41 1.41" />
+              </svg>
+            </span>
+            <span class="sr-only" id="theme-toggle-text"
+              >Toggle color theme</span
+            >
+          </button>
+        </div>
+      </div>
     </header>
 
-    <main>
-      <h2>Site Pages</h2>
+    <main id="main-content" class="container">
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <h1 id="page-title">Pages at kherrick.github.io</h1>
+          <p>
+            Interactive web games, WebAssembly experiments, reader apps,
+            presentation decks, and knowledge hubs published on GitHub Pages.
+          </p>
+        </div>
+        <ul class="hero-stats" aria-label="Directory summary">
+          <li class="stat-pill">5 Categories</li>
+          <li class="stat-pill">2 Knowledge Hubs</li>
+          <li class="stat-pill">63 Presentation Slides</li>
+        </ul>
+      </section>
 
-      <nav aria-label="Site Map">
-        <ul class="sitemap">
-          <li>
-            <span class="sitemap__category">Games</span>
-            <ul class="sitemap__list">
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/block-garden/"
+      <div id="filter-status-bar" class="filter-status-bar" hidden>
+        <span id="filter-status-text" role="status" aria-live="polite"></span>
+        <button type="button" class="clear-btn" id="clear-global-filter">
+          Clear filter
+        </button>
+      </div>
+
+      <!-- GAMES -->
+      <section
+        id="games"
+        class="category-section"
+        aria-labelledby="heading-games"
+      >
+        <div class="section-header">
+          <h2 id="heading-games">Games</h2>
+          <span class="section-meta"
+            >Voxel worlds, sprite experiments, and documentation hubs</span
+          >
+        </div>
+
+        <div class="card-grid">
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/block-garden/"
                   >Block Garden</a
                 >
-                <ul class="sitemap__list">
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/block-garden/privacy/"
-                      >Privacy Policy</a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li class="sitemap__item">
+              </h3>
+              <span class="badge">3D Voxel</span>
+            </div>
+            <p class="card-desc">
+              Browser-based 3D voxel sandbox and botanical gardening game.
+            </p>
+            <ul class="chip-list">
+              <li class="chip-item">
                 <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/block-garden-knowledge-hub/"
-                  >Block Garden - Knowledge Hub</a
+                  class="chip-link"
+                  href="https://kherrick.github.io/block-garden/privacy/"
+                  >Privacy Policy</a
                 >
-                <ul class="sitemap__list">
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/block-garden-knowledge-hub/main/"
-                      >Block Garden Knowledge Hub</a
-                    >
-                    (<code>/main/</code>) — Default hub landing page featuring
-                    an introduction to the 3D voxel sandbox engine, procedural
-                    terrain generation, farming mechanics, and custom element
-                    architecture.
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/block-garden-knowledge-hub/main/about/"
-                      >Architecture &amp; Procedural Engine</a
-                    >
-                    (<code>/main/about/</code>) — Deep architectural breakdown
-                    of the voxel game engine, covering the procedural world
-                    generator, custom rendering pipeline, and native Web
-                    Component encapsulation.
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/block-garden-knowledge-hub/main/controls/"
-                      >Controls, Modes &amp; Save Ecosystem</a
-                    >
-                    (<code>/main/controls/</code>) — Complete player reference
-                    for desktop, mobile, and touch controls, game modes, camera
-                    perspectives, inventory interaction, and multi-format world
-                    saving.
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/block-garden-knowledge-hub/main/farming-and-botany/"
-                      >Farming Mechanics &amp; Botanical Species</a
-                    >
-                    (<code>/main/farming-and-botany/</code>) — Guide to soil
-                    preparation, hydration dynamics, seed germination, growth
-                    stages, crop harvesting, and botanical taxonomy.
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/block-garden-knowledge-hub/main/api-examples/"
-                      >Public Modding API &amp; Script Gallery</a
-                    >
-                    (<code>/main/api-examples/</code>) — Extensible JavaScript
-                    modding API reference with copy-paste code recipes for
-                    custom block definitions, procedural structures, and runtime
-                    world manipulation.
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/block-garden-knowledge-hub/main/demos-and-media/"
-                      >Video Demos &amp; Media Showcase</a
-                    >
-                    (<code>/main/demos-and-media/</code>) — Video
-                    demonstrations, gameplay capture, high-resolution
-                    screenshots, and animated media illustrating voxel
-                    landscapes and botanical growth.
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/block-garden-knowledge-hub/main/world-saves-and-pdfs/"
-                      >PDF World Saves &amp; Postcard Gallery</a
-                    >
-                    (<code>/main/world-saves-and-pdfs/</code>) — Exploration of
-                    the innovative PDF Save Game format, embedding serialized
-                    voxel worlds and playable seeds directly within printable
-                    PDF documents.
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/block-garden-knowledge-hub/main/web-platform-and-performance/"
-                      >Web Platform Breakdown &amp; Performance Engineering</a
-                    >
-                    (<code>/main/web-platform-and-performance/</code>) —
-                    Technical breakdown of browser optimization techniques,
-                    including zero-allocation rendering loops, Web Worker
-                    offloading, Service Worker caching, and WebGL memory tuning.
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/block-garden-knowledge-hub/main/agent-skills-and-tools/"
-                      >Agent Skills, Declarative Tools &amp; Slash Commands</a
-                    >
-                    (<code>/main/agent-skills-and-tools/</code>) — Specification
-                    for AI agent integrations, declarative JSON tool
-                    definitions, workspace skills, and slash command pipelines
-                    interacting with the voxel world.
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/block-garden-knowledge-hub/main/memory/"
-                      >Block Garden Memory</a
-                    >
-                    (<code>/main/memory/</code>) — Agent routing directory and
-                    persistent memory specification detailing conventions for
-                    skills, tools, and game engine subsystem documentation.
-                  </li>
-                </ul>
               </li>
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/sprite-garden/"
+            </ul>
+          </article>
+
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/sprite-garden/"
                   >Sprite Garden</a
                 >
-                <ul class="sitemap__list">
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/sprite-garden/about/"
-                      >About Sprite Garden</a
-                    >
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/sprite-garden/privacy/"
-                      >Privacy Policy</a
-                    >
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/sprite-garden/src/api/examples/"
-                      >API Examples</a
-                    >
-                  </li>
-                </ul>
+              </h3>
+              <span class="badge">2D / Sprites</span>
+            </div>
+            <p class="card-desc">
+              Sprite-based garden environment, API recipes, and guides.
+            </p>
+            <ul class="chip-list">
+              <li class="chip-item">
+                <a
+                  class="chip-link"
+                  href="https://kherrick.github.io/sprite-garden/about/"
+                  >About Sprite Garden</a
+                >
+              </li>
+              <li class="chip-item">
+                <a
+                  class="chip-link"
+                  href="https://kherrick.github.io/sprite-garden/privacy/"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li class="chip-item">
+                <a
+                  class="chip-link"
+                  href="https://kherrick.github.io/sprite-garden/src/api/examples/"
+                  >API Examples</a
+                >
               </li>
             </ul>
-          </li>
-          <li>
-            <span class="sitemap__category">News</span>
-            <ul class="sitemap__list">
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/news-summary/"
+          </article>
+
+          <article class="card card--wide filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/block-garden-knowledge-hub/"
+                  >Block Garden - Knowledge Hub</a
+                >
+              </h3>
+              <span class="badge">10 Guides</span>
+            </div>
+            <p class="card-desc">
+              Architecture deep-dives, controls, botany mechanics, modding
+              scripts, and PDF world saves.
+            </p>
+            <details class="hub-details">
+              <summary>
+                Explore all 10 Block Garden Knowledge Hub guides
+              </summary>
+              <ul class="hub-grid">
+                <li class="hub-item">
+                  <a
+                    class="hub-item-title"
+                    href="https://kherrick.github.io/block-garden-knowledge-hub/main/"
+                    >Block Garden Knowledge Hub</a
+                  >
+                  (<code>/main/</code>)
+                  <span class="hub-item-desc"
+                    >Default hub landing page featuring an introduction to the
+                    3D voxel sandbox engine, procedural terrain generation,
+                    farming mechanics, and custom element architecture.</span
+                  >
+                </li>
+                <li class="hub-item">
+                  <a
+                    class="hub-item-title"
+                    href="https://kherrick.github.io/block-garden-knowledge-hub/main/about/"
+                    >Architecture &amp; Procedural Engine</a
+                  >
+                  (<code>/main/about/</code>)
+                  <span class="hub-item-desc"
+                    >Deep architectural breakdown of the voxel game engine,
+                    covering the procedural world generator, custom rendering
+                    pipeline, and native Web Component encapsulation.</span
+                  >
+                </li>
+                <li class="hub-item">
+                  <a
+                    class="hub-item-title"
+                    href="https://kherrick.github.io/block-garden-knowledge-hub/main/controls/"
+                    >Controls, Modes &amp; Save Ecosystem</a
+                  >
+                  (<code>/main/controls/</code>)
+                  <span class="hub-item-desc"
+                    >Complete player reference for desktop, mobile, and touch
+                    controls, game modes, camera perspectives, inventory
+                    interaction, and multi-format world saving.</span
+                  >
+                </li>
+                <li class="hub-item">
+                  <a
+                    class="hub-item-title"
+                    href="https://kherrick.github.io/block-garden-knowledge-hub/main/farming-and-botany/"
+                    >Farming Mechanics &amp; Botanical Species</a
+                  >
+                  (<code>/main/farming-and-botany/</code>)
+                  <span class="hub-item-desc"
+                    >Guide to soil preparation, hydration dynamics, seed
+                    germination, growth stages, crop harvesting, and botanical
+                    taxonomy.</span
+                  >
+                </li>
+                <li class="hub-item">
+                  <a
+                    class="hub-item-title"
+                    href="https://kherrick.github.io/block-garden-knowledge-hub/main/api-examples/"
+                    >Public Modding API &amp; Script Gallery</a
+                  >
+                  (<code>/main/api-examples/</code>)
+                  <span class="hub-item-desc"
+                    >Extensible JavaScript modding API reference with copy-paste
+                    code recipes for custom block definitions, procedural
+                    structures, and runtime world manipulation.</span
+                  >
+                </li>
+                <li class="hub-item">
+                  <a
+                    class="hub-item-title"
+                    href="https://kherrick.github.io/block-garden-knowledge-hub/main/demos-and-media/"
+                    >Video Demos &amp; Media Showcase</a
+                  >
+                  (<code>/main/demos-and-media/</code>)
+                  <span class="hub-item-desc"
+                    >Video demonstrations, gameplay capture, high-resolution
+                    screenshots, and animated media illustrating voxel
+                    landscapes and botanical growth.</span
+                  >
+                </li>
+                <li class="hub-item">
+                  <a
+                    class="hub-item-title"
+                    href="https://kherrick.github.io/block-garden-knowledge-hub/main/world-saves-and-pdfs/"
+                    >PDF World Saves &amp; Postcard Gallery</a
+                  >
+                  (<code>/main/world-saves-and-pdfs/</code>)
+                  <span class="hub-item-desc"
+                    >Exploration of the innovative PDF Save Game format,
+                    embedding serialized voxel worlds and playable seeds
+                    directly within printable PDF documents.</span
+                  >
+                </li>
+                <li class="hub-item">
+                  <a
+                    class="hub-item-title"
+                    href="https://kherrick.github.io/block-garden-knowledge-hub/main/web-platform-and-performance/"
+                    >Web Platform Breakdown &amp; Performance Engineering</a
+                  >
+                  (<code>/main/web-platform-and-performance/</code>)
+                  <span class="hub-item-desc"
+                    >Technical breakdown of browser optimization techniques,
+                    including zero-allocation rendering loops, Web Worker
+                    offloading, Service Worker caching, and WebGL memory
+                    tuning.</span
+                  >
+                </li>
+                <li class="hub-item">
+                  <a
+                    class="hub-item-title"
+                    href="https://kherrick.github.io/block-garden-knowledge-hub/main/agent-skills-and-tools/"
+                    >Agent Skills, Declarative Tools &amp; Slash Commands</a
+                  >
+                  (<code>/main/agent-skills-and-tools/</code>)
+                  <span class="hub-item-desc"
+                    >Specification for AI agent integrations, declarative JSON
+                    tool definitions, workspace skills, and slash command
+                    pipelines interacting with the voxel world.</span
+                  >
+                </li>
+                <li class="hub-item">
+                  <a
+                    class="hub-item-title"
+                    href="https://kherrick.github.io/block-garden-knowledge-hub/main/memory/"
+                    >Block Garden Memory</a
+                  >
+                  (<code>/main/memory/</code>)
+                  <span class="hub-item-desc"
+                    >Agent routing directory and persistent memory specification
+                    detailing conventions for skills, tools, and game engine
+                    subsystem documentation.</span
+                  >
+                </li>
+              </ul>
+            </details>
+          </article>
+        </div>
+      </section>
+
+      <!-- NEWS -->
+      <section
+        id="news"
+        class="category-section"
+        aria-labelledby="heading-news"
+      >
+        <div class="section-header">
+          <h2 id="heading-news">News</h2>
+          <span class="section-meta"
+            >Curated tech news feeds and summaries</span
+          >
+        </div>
+
+        <div class="card-grid">
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/news-summary/"
                   >News Summary</a
                 >
-              </li>
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/hacker-news/"
+              </h3>
+              <span class="badge">Digest</span>
+            </div>
+            <p class="card-desc">
+              Aggregated overview of recent headlines across tech feeds.
+            </p>
+          </article>
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/hacker-news/"
                   >Hacker News</a
                 >
-              </li>
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/lobsters/"
-                  >Lobsters</a
-                >
-              </li>
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/slashdot/"
-                  >Slashdot</a
-                >
-              </li>
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/soylent-news/"
+              </h3>
+              <span class="badge">Feed</span>
+            </div>
+            <p class="card-desc">
+              Standalone reader view for Hacker News stories.
+            </p>
+          </article>
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/lobsters/">Lobsters</a>
+              </h3>
+              <span class="badge">Feed</span>
+            </div>
+            <p class="card-desc">
+              Computing-focused link aggregator reader view.
+            </p>
+          </article>
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/slashdot/">Slashdot</a>
+              </h3>
+              <span class="badge">Feed</span>
+            </div>
+            <p class="card-desc">News for nerds reader feed.</p>
+          </article>
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/soylent-news/"
                   >Soylent News</a
                 >
-              </li>
-            </ul>
-          </li>
-          <li>
-            <span class="sitemap__category">Wasm</span>
-            <ul class="sitemap__list">
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/c-sharp-wasm-components/"
+              </h3>
+              <span class="badge">Feed</span>
+            </div>
+            <p class="card-desc">
+              Community-driven science and technology stories.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- WASM -->
+      <section
+        id="wasm"
+        class="category-section"
+        aria-labelledby="heading-wasm"
+      >
+        <div class="section-header">
+          <h2 id="heading-wasm">Wasm</h2>
+          <span class="section-meta"
+            >WebAssembly modules, C# components, PHP, and pwgen</span
+          >
+        </div>
+
+        <div class="card-grid">
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/c-sharp-wasm-components/"
                   >C# Wasm Components</a
                 >
-              </li>
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/minimal-c-sharp-wasm/"
+              </h3>
+              <span class="badge">C# / Wasm</span>
+            </div>
+            <p class="card-desc">
+              Web Components backed by C# compiled to WebAssembly.
+            </p>
+          </article>
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/minimal-c-sharp-wasm/"
                   >Minimal C# Wasm</a
                 >
-              </li>
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/postview/"
-                  >Postview</a
-                >
-              </li>
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/x-php/"
-                  >X-PHP</a
-                >
-              </li>
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/pwgen/"
+              </h3>
+              <span class="badge">C# / Wasm</span>
+            </div>
+            <p class="card-desc">
+              Minimal starter exploring lightweight C# in WebAssembly.
+            </p>
+          </article>
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/postview/">Postview</a>
+              </h3>
+              <span class="badge">Wasm</span>
+            </div>
+            <p class="card-desc">
+              Post viewing utility compiled for the browser.
+            </p>
+          </article>
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3><a href="https://kherrick.github.io/x-php/">X-PHP</a></h3>
+              <span class="badge">PHP / Wasm</span>
+            </div>
+            <p class="card-desc">
+              PHP runtime experiments running client-side via WebAssembly.
+            </p>
+          </article>
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/pwgen/"
                   >Password Generator</a
                 >
-              </li>
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/pwgen-knowledge-hub/"
+              </h3>
+              <span class="badge">pwgen</span>
+            </div>
+            <p class="card-desc">
+              Classic Unix pwgen compiled to WebAssembly for the browser.
+            </p>
+          </article>
+
+          <article class="card card--wide filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/pwgen-knowledge-hub/"
                   >Pwgen Knowledge Hub</a
                 >
-                <ul class="sitemap__list">
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/pwgen-knowledge-hub/main/"
-                      >pwgen Knowledge Hub</a
-                    >
-                    (<code>/main/</code>) — Hub landing page and interactive
-                    showcase for the classic Unix password generator compiled to
-                    WebAssembly for CLI, Custom Elements, ESM, Node.js, and web
-                    apps.
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/pwgen-knowledge-hub/main/about/"
-                      >Architecture, Origins &amp; WebAssembly Evolution</a
-                    >
-                    (<code>/main/about/</code>) — Historical and architectural
-                    examination of pwgen, from Theodore Ts'o's original C
-                    codebase to its modern WebAssembly compilation and Web
-                    Component packaging.
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/pwgen-knowledge-hub/main/cli-and-flags/"
-                      >CLI Usage, Options &amp; Node.js Integration</a
-                    >
-                    (<code>/main/cli-and-flags/</code>) — Complete command-line
-                    manual covering CLI flags, options, npx execution, global
-                    npm installation, and headless Node.js scripting patterns.
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/pwgen-knowledge-hub/main/wasm-and-compilation/"
-                      >C to WebAssembly Compilation Pipeline</a
-                    >
-                    (<code>/main/wasm-and-compilation/</code>) — Deep technical
-                    dive into the Emscripten compilation toolchain, LLVM
-                    optimizations, memory sandboxing, and minimal binary size
-                    tuning for Wasm targets.
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/pwgen-knowledge-hub/main/custom-element-and-web-integration/"
-                      >Native Custom Element (&lt;x-pwgen&gt;) &amp; Framework
-                      Integration</a
-                    >
-                    (<code>/main/custom-element-and-web-integration/</code>) —
-                    Guide to embedding the &lt;x-pwgen&gt; declarative custom
+              </h3>
+              <span class="badge">10 Guides</span>
+            </div>
+            <p class="card-desc">
+              Emscripten compilation pipeline, CLI flags, custom element
+              integration, entropy analysis, and PWA optimization.
+            </p>
+            <details class="hub-details">
+              <summary>Explore all 10 Pwgen Knowledge Hub guides</summary>
+              <ul class="hub-grid">
+                <li class="hub-item">
+                  <a
+                    class="hub-item-title"
+                    href="https://kherrick.github.io/pwgen-knowledge-hub/main/"
+                    >pwgen Knowledge Hub</a
+                  >
+                  (<code>/main/</code>)
+                  <span class="hub-item-desc"
+                    >Hub landing page and interactive showcase for the classic
+                    Unix password generator compiled to WebAssembly for CLI,
+                    Custom Elements, ESM, Node.js, and web apps.</span
+                  >
+                </li>
+                <li class="hub-item">
+                  <a
+                    class="hub-item-title"
+                    href="https://kherrick.github.io/pwgen-knowledge-hub/main/about/"
+                    >Architecture, Origins &amp; WebAssembly Evolution</a
+                  >
+                  (<code>/main/about/</code>)
+                  <span class="hub-item-desc"
+                    >Historical and architectural examination of pwgen, from
+                    Theodore Ts'o's original C codebase to its modern
+                    WebAssembly compilation and Web Component packaging.</span
+                  >
+                </li>
+                <li class="hub-item">
+                  <a
+                    class="hub-item-title"
+                    href="https://kherrick.github.io/pwgen-knowledge-hub/main/cli-and-flags/"
+                    >CLI Usage, Options &amp; Node.js Integration</a
+                  >
+                  (<code>/main/cli-and-flags/</code>)
+                  <span class="hub-item-desc"
+                    >Complete command-line manual covering CLI flags, options,
+                    npx execution, global npm installation, and headless Node.js
+                    scripting patterns.</span
+                  >
+                </li>
+                <li class="hub-item">
+                  <a
+                    class="hub-item-title"
+                    href="https://kherrick.github.io/pwgen-knowledge-hub/main/wasm-and-compilation/"
+                    >C to WebAssembly Compilation Pipeline</a
+                  >
+                  (<code>/main/wasm-and-compilation/</code>)
+                  <span class="hub-item-desc"
+                    >Deep technical dive into the Emscripten compilation
+                    toolchain, LLVM optimizations, memory sandboxing, and
+                    minimal binary size tuning for Wasm targets.</span
+                  >
+                </li>
+                <li class="hub-item">
+                  <a
+                    class="hub-item-title"
+                    href="https://kherrick.github.io/pwgen-knowledge-hub/main/custom-element-and-web-integration/"
+                    >Native Custom Element (&lt;x-pwgen&gt;) &amp; Framework
+                    Integration</a
+                  >
+                  (<code>/main/custom-element-and-web-integration/</code>)
+                  <span class="hub-item-desc"
+                    >Guide to embedding the &lt;x-pwgen&gt; declarative custom
                     element into vanilla HTML, React, Vue, Angular, and other
-                    modern frontend frameworks.
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/pwgen-knowledge-hub/main/historical-targets-wbn-wapm/"
-                      >Historical Evolution: Web Bundles (.wbn) &amp; WAPM
-                      Distribution</a
-                    >
-                    (<code>/main/historical-targets-wbn-wapm/</code>) —
-                    Historical commit retrospective detailing experimental Web
+                    modern frontend frameworks.</span
+                  >
+                </li>
+                <li class="hub-item">
+                  <a
+                    class="hub-item-title"
+                    href="https://kherrick.github.io/pwgen-knowledge-hub/main/historical-targets-wbn-wapm/"
+                    >Historical Evolution: Web Bundles (.wbn) &amp; WAPM
+                    Distribution</a
+                  >
+                  (<code>/main/historical-targets-wbn-wapm/</code>)
+                  <span class="hub-item-desc"
+                    >Historical commit retrospective detailing experimental Web
                     Bundles (.wbn), isolated web packaging, and WAPM registry
-                    distribution milestones.
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/pwgen-knowledge-hub/main/security-entropy-and-sha1/"
-                      >Password Security, Phonetics &amp; Deterministic SHA1
-                      Seeding</a
-                    >
-                    (<code>/main/security-entropy-and-sha1/</code>) —
-                    Mathematical analysis of entropy bit calculations,
+                    distribution milestones.</span
+                  >
+                </li>
+                <li class="hub-item">
+                  <a
+                    class="hub-item-title"
+                    href="https://kherrick.github.io/pwgen-knowledge-hub/main/security-entropy-and-sha1/"
+                    >Password Security, Phonetics &amp; Deterministic SHA1
+                    Seeding</a
+                  >
+                  (<code>/main/security-entropy-and-sha1/</code>)
+                  <span class="hub-item-desc"
+                    >Mathematical analysis of entropy bit calculations,
                     pronounceable phonetic password algorithms, CSPRNG
-                    randomness, and deterministic SHA-1 seeding.
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/pwgen-knowledge-hub/main/web-platform-and-performance/"
-                      >Web Platform Optimization &amp; PWA Performance
-                      Engineering</a
-                    >
-                    (<code>/main/web-platform-and-performance/</code>) —
-                    Engineering overview of Web Platform performance, Service
+                    randomness, and deterministic SHA-1 seeding.</span
+                  >
+                </li>
+                <li class="hub-item">
+                  <a
+                    class="hub-item-title"
+                    href="https://kherrick.github.io/pwgen-knowledge-hub/main/web-platform-and-performance/"
+                    >Web Platform Optimization &amp; PWA Performance
+                    Engineering</a
+                  >
+                  (<code>/main/web-platform-and-performance/</code>)
+                  <span class="hub-item-desc"
+                    >Engineering overview of Web Platform performance, Service
                     Worker caching strategies, streaming Wasm instantiation, and
-                    offline PWA capabilities.
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/pwgen-knowledge-hub/main/agent-skills-and-tools/"
-                      >Agent Skills, Declarative Tools &amp; Slash Commands</a
-                    >
-                    (<code>/main/agent-skills-and-tools/</code>) — Documentation
-                    on declarative agent tools, headless skill pipelines, and
-                    slash commands enabling AI assistants to generate secure
-                    passwords deterministically.
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/pwgen-knowledge-hub/main/memory/"
-                      >Agent Memory Index</a
-                    >
-                    (<code>/main/memory/</code>) — Central directory for AI
-                    agents documenting memory conventions, available tools,
-                    skills, and password-generation subsystem references.
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <span class="sitemap__category">Apps</span>
-            <ul class="sitemap__list">
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/apps/about/"
-                  >About Apps</a
-                >
-              </li>
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/apps/calculator/"
+                    offline PWA capabilities.</span
+                  >
+                </li>
+                <li class="hub-item">
+                  <a
+                    class="hub-item-title"
+                    href="https://kherrick.github.io/pwgen-knowledge-hub/main/agent-skills-and-tools/"
+                    >Agent Skills, Declarative Tools &amp; Slash Commands</a
+                  >
+                  (<code>/main/agent-skills-and-tools/</code>)
+                  <span class="hub-item-desc"
+                    >Documentation on declarative agent tools, headless skill
+                    pipelines, and slash commands enabling AI assistants to
+                    generate secure passwords deterministically.</span
+                  >
+                </li>
+                <li class="hub-item">
+                  <a
+                    class="hub-item-title"
+                    href="https://kherrick.github.io/pwgen-knowledge-hub/main/memory/"
+                    >Agent Memory Index</a
+                  >
+                  (<code>/main/memory/</code>)
+                  <span class="hub-item-desc"
+                    >Central directory for AI agents documenting memory
+                    conventions, available tools, skills, and
+                    password-generation subsystem references.</span
+                  >
+                </li>
+              </ul>
+            </details>
+          </article>
+        </div>
+      </section>
+
+      <!-- APPS -->
+      <section
+        id="apps"
+        class="category-section"
+        aria-labelledby="heading-apps"
+      >
+        <div class="section-header">
+          <h2 id="heading-apps">Apps</h2>
+          <span class="section-meta"
+            >Utilities, readers, playgrounds, and slide decks</span
+          >
+        </div>
+
+        <div class="card-grid">
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/apps/about/">About Apps</a>
+              </h3>
+              <span class="badge">Info</span>
+            </div>
+            <p class="card-desc">
+              Overview of the apps collection under kherrick.github.io.
+            </p>
+          </article>
+
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/apps/calculator/"
                   >Calculator</a
                 >
-              </li>
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/apps/feeds/"
-                  >Feeds</a
-                >
-                <ul class="sitemap__list">
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/apps/feeds/herrick-design/"
-                      >Herrick Design Feed</a
-                    >
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/apps/feeds/infinitym/"
-                      >Infinitym Feed</a
-                    >
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/apps/feeds/karl-herrick/"
-                      >Karl Herrick Feed</a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/apps/links/"
-                  >Links</a
-                >
-              </li>
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/apps/news/"
-                  >News App</a
-                >
-                <ul class="sitemap__list">
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/apps/news/hacker-news/"
-                      >Hacker News App</a
-                    >
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/apps/news/lobsters/"
-                      >Lobsters App</a
-                    >
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/apps/news/slashdot/"
-                      >Slashdot App</a
-                    >
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/apps/news/soylent-news/"
-                      >Soylent News App</a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/apps/playground/"
-                  >Playground</a
-                >
-                <ul class="sitemap__list">
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/apps/playground/background-removal/"
-                      >Background Removal</a
-                    >
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/apps/playground/block-garden/"
-                      >Block Garden Playground</a
-                    >
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/apps/playground/canvas-image-manipulation/"
-                      >Canvas Image Manipulation</a
-                    >
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/apps/playground/certificates/"
-                      >Certificates</a
-                    >
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/apps/playground/encryption/"
-                      >Encryption</a
-                    >
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/apps/playground/peer/"
-                      >Peer Connection</a
-                    >
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/apps/playground/signature-detection/"
-                      >Signature Detection</a
-                    >
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/apps/playground/sprite-garden/"
-                      >Sprite Garden Playground</a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/apps/pwgen/"
+              </h3>
+              <span class="badge">Utility</span>
+            </div>
+            <p class="card-desc">Lightweight web calculator application.</p>
+          </article>
+
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/apps/links/">Links</a>
+              </h3>
+              <span class="badge">Bookmarks</span>
+            </div>
+            <p class="card-desc">Curated link directory app.</p>
+          </article>
+
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/apps/pwgen/"
                   >Password Generator App</a
                 >
-              </li>
-              <li class="sitemap__item">
+              </h3>
+              <span class="badge">Security</span>
+            </div>
+            <p class="card-desc">
+              Web app wrapper for generating strong passwords with pwgen.
+            </p>
+          </article>
+
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/apps/feeds/">Feeds</a>
+              </h3>
+              <span class="badge">3 Feeds</span>
+            </div>
+            <p class="card-desc">Individual RSS/Atom feed readers.</p>
+            <ul class="chip-list">
+              <li class="chip-item">
                 <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/apps/slides/slides/"
-                  >Slides</a
+                  class="chip-link"
+                  href="https://kherrick.github.io/apps/feeds/herrick-design/"
+                  >Herrick Design Feed</a
                 >
-                <ul class="sitemap__list">
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/apps/slides/progressive-web-apps/?n=0"
-                      >Progressive Web Apps Slides</a
-                    >
-                    <ul class="sitemap__list">
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/1/?n=1"
-                          >Foundations - Graceful Degration</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/2/?n=1"
-                          >Foundations - Progressive Enhancement</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/3/?n=1"
-                          >Foundations - Responsive Web Design</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/4/?n=1"
-                          >Foundations - Mobile First</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/5/?n=1"
-                          >Foundations - Offline First</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/6/?n=7"
-                          >Bringing The Best Of Both Worlds</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/7/?n=7"
-                          >Bringing The Best Of Both Worlds</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/8/?n=1"
-                          >What Is It?</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/9/?n=1"
-                          >What Is It?</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/10/?n=3"
-                          >Baseline
-                        </a>
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/11/?n=3"
-                          >Baseline</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/12/?n=3"
-                          >Good To Haves</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/13/?n=3"
-                          >Good To Haves</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/14/?n=4"
-                          >A+ Progressive Web Apps</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/15/?n=4"
-                          >Why Build One?</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/16/?n=4"
-                          >Why Build One?</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/17/?n=3"
-                          >PWA Architecture Patterns</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/18/?n=3"
-                          >PWA Architecture Patterns</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/19/?n=3"
-                          >Installation</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/20/?n=4"
-                          >Post Installation Expectations</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/21/?n=1"
-                          >Installation On Windows Using Microsoft Edge</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/22/?n=1"
-                          >Installation On Android Using Microsoft Edge</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/23/?n=1"
-                          >Installation On Android Using Google Chrome</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/24/?n=1"
-                          >Push Notifications</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/25/?n=1"
-                          >Push Notifications On Android Using Chrome</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/26/?n=1"
-                          >Push Notifications On Windows Using Chrome</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/27/?n=8"
-                          >Additional Example Service Worker Strategies</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/28/?n=14"
-                          >Further Info</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/progressive-web-apps/end/?n=1"
-                          >The End</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/?n=0"
-                      >Rendering, App Shells, and PWAs, Oh My!</a
-                    >
-                    <ul class="sitemap__list">
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/1/?n=11"
-                          >There Are Many Different Ways To Render - Server Side
-                          Rendering</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/2/?n=4"
-                          >Server Side Rendering - Pros</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/3/?n=7"
-                          >Server Side Rendering - Cons</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/4/?n=11"
-                          >There Are Many Different Ways To Render - Client Side
-                          Rendering</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/5/?n=4"
-                          >Client Side Rendering - Pros</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/6/?n=4"
-                          >Client Side Rendering - Cons</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/7/?n=9"
-                          >There Are Many Different Ways To Render - Static Site
-                          Generation (And Pre-Rendering)</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/8/?n=3"
-                          >Static Site Generation (And Pre-Rendering) - Pros</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/9/?n=2"
-                          >Static Site Generation (And Pre-Rendering) - Cons</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/10/?n=1"
-                          >Distinctions Between Static Rendering And
-                          Pre-Rendering</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/11/?n=1"
-                          >Distinctions Between Static Rendering And
-                          Pre-Rendering</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/12/?n=4"
-                          >Combinations</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/13/?n=1"
-                          >Service Workers And Streams - The Year Of Web
-                          Streams</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/14/?n=1"
-                          >Service Workers And Streams - Streaming Responses</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/15/?n=1"
-                          >Service Workers And Streams - Trimorphic Rendering</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/16/?n=0"
-                          >App Shell</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/17/?n=1"
-                          >What Is An App Shell - Michael Geers</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/18/?n=1"
-                          >What Is An App Shell - Tal Ater</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/19/?n=1"
-                          >What Is An App Shell - Angular</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/20/?n=1"
-                          >What Is An App Shell - Google</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/21/?n=1"
-                          >What Is An App Shell - MDN</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/22/?n=1"
-                          >Progressive Web Apps - What Are They</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/23/?n=3"
-                          >Progressive Web Apps - Baseline</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/24/?n=3"
-                          >Progressive Web Apps - Baseline</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/25/?n=3"
-                          >Progressive Web Apps - Good To Haves</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/26/?n=3"
-                          >Progressive Web Apps - Good To Haves</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/27/?n=4"
-                          >Progressive Web Apps - A+ Progressive Web Apps</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/28/?n=4"
-                          >Progressive Web Apps - Why Build One?</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/29/?n=4"
-                          >Progressive Web Apps - Why Build One?</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/30/?n=3"
-                          >Progressive Web Apps - PWA Architecture Patterns</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/31/?n=3"
-                          >Progressive Web Apps - PWA Architecture Patterns</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/32/?n=9"
-                          >Progressive Web Apps - Example Service Worker
-                          Strategies</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/33/?n=14"
-                          >Progressive Web Apps - Further Info</a
-                        >
-                      </li>
-                      <li class="sitemap__item">
-                        <a
-                          class="sitemap__link"
-                          href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/end/?n=1"
-                          >The End</a
-                        >
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
+              </li>
+              <li class="chip-item">
+                <a
+                  class="chip-link"
+                  href="https://kherrick.github.io/apps/feeds/infinitym/"
+                  >Infinitym Feed</a
+                >
+              </li>
+              <li class="chip-item">
+                <a
+                  class="chip-link"
+                  href="https://kherrick.github.io/apps/feeds/karl-herrick/"
+                  >Karl Herrick Feed</a
+                >
               </li>
             </ul>
-          </li>
-          <li>
-            <span class="sitemap__category">Other</span>
-            <ul class="sitemap__list">
-              <li class="sitemap__item">
+          </article>
+
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/apps/news/">News App</a>
+              </h3>
+              <span class="badge">4 Channels</span>
+            </div>
+            <p class="card-desc">
+              Unified PWA news reader across developer communities.
+            </p>
+            <ul class="chip-list">
+              <li class="chip-item">
                 <a
-                  class="sitemap__link"
-                  href="https://xt-ml.github.io/shadow-claw/"
-                  >Shadow Claw</a
+                  class="chip-link"
+                  href="https://kherrick.github.io/apps/news/hacker-news/"
+                  >Hacker News App</a
                 >
               </li>
-              <li class="sitemap__item">
+              <li class="chip-item">
                 <a
-                  class="sitemap__link"
-                  href="https://github.com/xt-ml/shadow-claw-template/"
-                  >Shadow Claw Template</a
+                  class="chip-link"
+                  href="https://kherrick.github.io/apps/news/lobsters/"
+                  >Lobsters App</a
                 >
               </li>
-              <li class="sitemap__item">
+              <li class="chip-item">
                 <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/canvas-image-manipulation/"
+                  class="chip-link"
+                  href="https://kherrick.github.io/apps/news/slashdot/"
+                  >Slashdot App</a
+                >
+              </li>
+              <li class="chip-item">
+                <a
+                  class="chip-link"
+                  href="https://kherrick.github.io/apps/news/soylent-news/"
+                  >Soylent News App</a
+                >
+              </li>
+            </ul>
+          </article>
+
+          <article class="card card--wide filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/apps/playground/"
+                  >Playground</a
+                >
+              </h3>
+              <span class="badge">8 Experiments</span>
+            </div>
+            <p class="card-desc">
+              Interactive browser API sandboxes covering imaging, WebRTC peers,
+              crypto, and games.
+            </p>
+            <ul class="chip-list">
+              <li class="chip-item">
+                <a
+                  class="chip-link"
+                  href="https://kherrick.github.io/apps/playground/background-removal/"
+                  >Background Removal</a
+                >
+              </li>
+              <li class="chip-item">
+                <a
+                  class="chip-link"
+                  href="https://kherrick.github.io/apps/playground/block-garden/"
+                  >Block Garden Playground</a
+                >
+              </li>
+              <li class="chip-item">
+                <a
+                  class="chip-link"
+                  href="https://kherrick.github.io/apps/playground/canvas-image-manipulation/"
                   >Canvas Image Manipulation</a
                 >
               </li>
-              <li class="sitemap__item">
+              <li class="chip-item">
                 <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/material-design-lite/"
-                  >Material Design Lite</a
+                  class="chip-link"
+                  href="https://kherrick.github.io/apps/playground/certificates/"
+                  >Certificates</a
                 >
               </li>
-              <li class="sitemap__item">
-                <a class="sitemap__link" href="https://kherrick.github.io/maze/"
-                  >Maze</a
+              <li class="chip-item">
+                <a
+                  class="chip-link"
+                  href="https://kherrick.github.io/apps/playground/encryption/"
+                  >Encryption</a
                 >
               </li>
-              <li class="sitemap__item">
+              <li class="chip-item">
                 <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/NgRxElementDemo/"
-                  >NgRx Element Demo</a
+                  class="chip-link"
+                  href="https://kherrick.github.io/apps/playground/peer/"
+                  >Peer Connection</a
                 >
               </li>
-              <li class="sitemap__item">
+              <li class="chip-item">
                 <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/tfjs-component-playground/"
-                  >TensorFlow.js Component Playground</a
+                  class="chip-link"
+                  href="https://kherrick.github.io/apps/playground/signature-detection/"
+                  >Signature Detection</a
                 >
               </li>
-              <li class="sitemap__item">
+              <li class="chip-item">
                 <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/web-components-starter/"
-                  >Web Components Starter</a
+                  class="chip-link"
+                  href="https://kherrick.github.io/apps/playground/sprite-garden/"
+                  >Sprite Garden Playground</a
                 >
-              </li>
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/x-postpress-code/"
-                  >X-Postpress Code</a
-                >
-              </li>
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/x-weather-app/"
-                  >X-Weather App</a
-                >
-              </li>
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/x-app/"
-                  >X-App</a
-                >
-                <ul class="sitemap__list">
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/x-app/2024/12/first-post/"
-                      >First Post</a
-                    >
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/x-app/2025/01/aurora-borealis/"
-                      >Aurora Borealis</a
-                    >
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/x-app/2025/01/exercising-xslt/"
-                      >Exercising XSLT</a
-                    >
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/x-app/2025/01/xpath-in-action/"
-                      >XPath in Action</a
-                    >
-                  </li>
-                </ul>
-              </li>
-              <li class="sitemap__item">
-                <a
-                  class="sitemap__link"
-                  href="https://kherrick.github.io/x-ml-data/"
-                  >X-ML Data</a
-                >
-                <ul class="sitemap__list">
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/x-ml-data/2024/12/first-post/"
-                      >First Post</a
-                    >
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/x-ml-data/2025/01/aurora-borealis/"
-                      >Aurora Borealis</a
-                    >
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/x-ml-data/2025/01/exercising-xslt/"
-                      >Exercising XSLT</a
-                    >
-                  </li>
-                  <li class="sitemap__item">
-                    <a
-                      class="sitemap__link"
-                      href="https://kherrick.github.io/x-ml-data/2025/01/xpath-in-action/"
-                      >XPath in Action</a
-                    >
-                  </li>
-                </ul>
               </li>
             </ul>
-          </li>
-        </ul>
-      </nav>
+          </article>
+        </div>
+      </section>
+
+      <!-- CREATIVE SLIDE DECKS FILMSTRIP SHOWCASE -->
+      <section
+        id="slides"
+        class="category-section"
+        aria-labelledby="heading-slides"
+      >
+        <div class="section-header">
+          <h2 id="heading-slides">
+            <a href="https://kherrick.github.io/apps/slides/slides/">Slides</a>
+          </h2>
+          <span class="section-meta"
+            >Interactive filmstrip index across 2 presentation decks (63
+            slides)</span
+          >
+        </div>
+
+        <div class="decks-stack">
+          <!-- Deck 1 -->
+          <article class="deck-card" data-deck="pwa">
+            <div class="deck-header">
+              <div class="deck-title-group">
+                <h3>
+                  <a
+                    href="https://kherrick.github.io/apps/slides/progressive-web-apps/?n=0"
+                    >Progressive Web Apps Slides</a
+                  >
+                </h3>
+                <span class="badge">29 slides</span>
+              </div>
+              <a
+                class="deck-launch"
+                href="https://kherrick.github.io/apps/slides/progressive-web-apps/?n=0"
+                >Launch Deck →</a
+              >
+            </div>
+
+            <div class="deck-toolbar">
+              <div class="deck-filter-group">
+                <label for="filter-deck-pwa" class="sr-only"
+                  >Filter slides in Progressive Web Apps deck</label
+                >
+                <input
+                  id="filter-deck-pwa"
+                  class="deck-filter"
+                  type="search"
+                  placeholder="Filter 29 slides..."
+                  autocomplete="off"
+                />
+                <span class="deck-match-count" aria-live="polite">29 / 29</span>
+              </div>
+              <div class="deck-controls">
+                <button
+                  type="button"
+                  class="deck-btn deck-prev"
+                  aria-label="Scroll Progressive Web Apps slides left"
+                >
+                  ← Prev
+                </button>
+                <button
+                  type="button"
+                  class="deck-btn deck-next"
+                  aria-label="Scroll Progressive Web Apps slides right"
+                >
+                  Next →
+                </button>
+                <button
+                  type="button"
+                  class="deck-btn deck-grid-toggle"
+                  aria-pressed="false"
+                >
+                  Grid view
+                </button>
+              </div>
+            </div>
+
+            <ol
+              class="slide-filmstrip"
+              aria-label="Progressive Web Apps slides"
+            >
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/1/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">01</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title"
+                    >Foundations - Graceful Degration</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/2/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">02</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title"
+                    >Foundations - Progressive Enhancement</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/3/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">03</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title"
+                    >Foundations - Responsive Web Design</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/4/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">04</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title">Foundations - Mobile First</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/5/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">05</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title">Foundations - Offline First</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/6/?n=7"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">06</span
+                    ><span class="slide-query">?n=7</span>
+                  </div>
+                  <span class="slide-title"
+                    >Bringing The Best Of Both Worlds</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/7/?n=7"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">07</span
+                    ><span class="slide-query">?n=7</span>
+                  </div>
+                  <span class="slide-title"
+                    >Bringing The Best Of Both Worlds</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/8/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">08</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title">What Is It?</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/9/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">09</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title">What Is It?</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/10/?n=3"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">10</span
+                    ><span class="slide-query">?n=3</span>
+                  </div>
+                  <span class="slide-title">Baseline</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/11/?n=3"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">11</span
+                    ><span class="slide-query">?n=3</span>
+                  </div>
+                  <span class="slide-title">Baseline</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/12/?n=3"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">12</span
+                    ><span class="slide-query">?n=3</span>
+                  </div>
+                  <span class="slide-title">Good To Haves</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/13/?n=3"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">13</span
+                    ><span class="slide-query">?n=3</span>
+                  </div>
+                  <span class="slide-title">Good To Haves</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/14/?n=4"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">14</span
+                    ><span class="slide-query">?n=4</span>
+                  </div>
+                  <span class="slide-title">A+ Progressive Web Apps</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/15/?n=4"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">15</span
+                    ><span class="slide-query">?n=4</span>
+                  </div>
+                  <span class="slide-title">Why Build One?</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/16/?n=4"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">16</span
+                    ><span class="slide-query">?n=4</span>
+                  </div>
+                  <span class="slide-title">Why Build One?</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/17/?n=3"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">17</span
+                    ><span class="slide-query">?n=3</span>
+                  </div>
+                  <span class="slide-title">PWA Architecture Patterns</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/18/?n=3"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">18</span
+                    ><span class="slide-query">?n=3</span>
+                  </div>
+                  <span class="slide-title">PWA Architecture Patterns</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/19/?n=3"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">19</span
+                    ><span class="slide-query">?n=3</span>
+                  </div>
+                  <span class="slide-title">Installation</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/20/?n=4"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">20</span
+                    ><span class="slide-query">?n=4</span>
+                  </div>
+                  <span class="slide-title"
+                    >Post Installation Expectations</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/21/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">21</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title"
+                    >Installation On Windows Using Microsoft Edge</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/22/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">22</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title"
+                    >Installation On Android Using Microsoft Edge</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/23/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">23</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title"
+                    >Installation On Android Using Google Chrome</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/24/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">24</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title">Push Notifications</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/25/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">25</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title"
+                    >Push Notifications On Android Using Chrome</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/26/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">26</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title"
+                    >Push Notifications On Windows Using Chrome</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/27/?n=8"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">27</span
+                    ><span class="slide-query">?n=8</span>
+                  </div>
+                  <span class="slide-title"
+                    >Additional Example Service Worker Strategies</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/28/?n=14"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">28</span
+                    ><span class="slide-query">?n=14</span>
+                  </div>
+                  <span class="slide-title">Further Info</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/progressive-web-apps/end/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">END</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title">The End</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+            </ol>
+          </article>
+
+          <!-- Deck 2 -->
+          <article class="deck-card" data-deck="rendering">
+            <div class="deck-header">
+              <div class="deck-title-group">
+                <h3>
+                  <a
+                    href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/?n=0"
+                    >Rendering, App Shells, and PWAs, Oh My!</a
+                  >
+                </h3>
+                <span class="badge">34 slides</span>
+              </div>
+              <a
+                class="deck-launch"
+                href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/?n=0"
+                >Launch Deck →</a
+              >
+            </div>
+
+            <div class="deck-toolbar">
+              <div class="deck-filter-group">
+                <label for="filter-deck-rendering" class="sr-only"
+                  >Filter slides in Rendering, App Shells, and PWAs, Oh My!
+                  deck</label
+                >
+                <input
+                  id="filter-deck-rendering"
+                  class="deck-filter"
+                  type="search"
+                  placeholder="Filter 34 slides..."
+                  autocomplete="off"
+                />
+                <span class="deck-match-count" aria-live="polite">34 / 34</span>
+              </div>
+              <div class="deck-controls">
+                <button
+                  type="button"
+                  class="deck-btn deck-prev"
+                  aria-label="Scroll Rendering and App Shells slides left"
+                >
+                  ← Prev
+                </button>
+                <button
+                  type="button"
+                  class="deck-btn deck-next"
+                  aria-label="Scroll Rendering and App Shells slides right"
+                >
+                  Next →
+                </button>
+                <button
+                  type="button"
+                  class="deck-btn deck-grid-toggle"
+                  aria-pressed="false"
+                >
+                  Grid view
+                </button>
+              </div>
+            </div>
+
+            <ol
+              class="slide-filmstrip"
+              aria-label="Rendering, App Shells, and PWAs, Oh My! slides"
+            >
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/1/?n=11"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">01</span
+                    ><span class="slide-query">?n=11</span>
+                  </div>
+                  <span class="slide-title"
+                    >There Are Many Different Ways To Render - Server Side
+                    Rendering</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/2/?n=4"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">02</span
+                    ><span class="slide-query">?n=4</span>
+                  </div>
+                  <span class="slide-title">Server Side Rendering - Pros</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/3/?n=7"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">03</span
+                    ><span class="slide-query">?n=7</span>
+                  </div>
+                  <span class="slide-title">Server Side Rendering - Cons</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/4/?n=11"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">04</span
+                    ><span class="slide-query">?n=11</span>
+                  </div>
+                  <span class="slide-title"
+                    >There Are Many Different Ways To Render - Client Side
+                    Rendering</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/5/?n=4"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">05</span
+                    ><span class="slide-query">?n=4</span>
+                  </div>
+                  <span class="slide-title">Client Side Rendering - Pros</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/6/?n=4"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">06</span
+                    ><span class="slide-query">?n=4</span>
+                  </div>
+                  <span class="slide-title">Client Side Rendering - Cons</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/7/?n=9"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">07</span
+                    ><span class="slide-query">?n=9</span>
+                  </div>
+                  <span class="slide-title"
+                    >There Are Many Different Ways To Render - Static Site
+                    Generation (And Pre-Rendering)</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/8/?n=3"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">08</span
+                    ><span class="slide-query">?n=3</span>
+                  </div>
+                  <span class="slide-title"
+                    >Static Site Generation (And Pre-Rendering) - Pros</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/9/?n=2"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">09</span
+                    ><span class="slide-query">?n=2</span>
+                  </div>
+                  <span class="slide-title"
+                    >Static Site Generation (And Pre-Rendering) - Cons</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/10/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">10</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title"
+                    >Distinctions Between Static Rendering And
+                    Pre-Rendering</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/11/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">11</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title"
+                    >Distinctions Between Static Rendering And
+                    Pre-Rendering</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/12/?n=4"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">12</span
+                    ><span class="slide-query">?n=4</span>
+                  </div>
+                  <span class="slide-title">Combinations</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/13/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">13</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title"
+                    >Service Workers And Streams - The Year Of Web Streams</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/14/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">14</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title"
+                    >Service Workers And Streams - Streaming Responses</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/15/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">15</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title"
+                    >Service Workers And Streams - Trimorphic Rendering</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/16/?n=0"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">16</span
+                    ><span class="slide-query">?n=0</span>
+                  </div>
+                  <span class="slide-title">App Shell</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/17/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">17</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title"
+                    >What Is An App Shell - Michael Geers</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/18/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">18</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title"
+                    >What Is An App Shell - Tal Ater</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/19/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">19</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title"
+                    >What Is An App Shell - Angular</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/20/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">20</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title">What Is An App Shell - Google</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/21/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">21</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title">What Is An App Shell - MDN</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/22/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">22</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title"
+                    >Progressive Web Apps - What Are They</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/23/?n=3"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">23</span
+                    ><span class="slide-query">?n=3</span>
+                  </div>
+                  <span class="slide-title"
+                    >Progressive Web Apps - Baseline</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/24/?n=3"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">24</span
+                    ><span class="slide-query">?n=3</span>
+                  </div>
+                  <span class="slide-title"
+                    >Progressive Web Apps - Baseline</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/25/?n=3"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">25</span
+                    ><span class="slide-query">?n=3</span>
+                  </div>
+                  <span class="slide-title"
+                    >Progressive Web Apps - Good To Haves</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/26/?n=3"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">26</span
+                    ><span class="slide-query">?n=3</span>
+                  </div>
+                  <span class="slide-title"
+                    >Progressive Web Apps - Good To Haves</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/27/?n=4"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">27</span
+                    ><span class="slide-query">?n=4</span>
+                  </div>
+                  <span class="slide-title"
+                    >Progressive Web Apps - A+ Progressive Web Apps</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/28/?n=4"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">28</span
+                    ><span class="slide-query">?n=4</span>
+                  </div>
+                  <span class="slide-title"
+                    >Progressive Web Apps - Why Build One?</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/29/?n=4"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">29</span
+                    ><span class="slide-query">?n=4</span>
+                  </div>
+                  <span class="slide-title"
+                    >Progressive Web Apps - Why Build One?</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/30/?n=3"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">30</span
+                    ><span class="slide-query">?n=3</span>
+                  </div>
+                  <span class="slide-title"
+                    >Progressive Web Apps - PWA Architecture Patterns</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/31/?n=3"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">31</span
+                    ><span class="slide-query">?n=3</span>
+                  </div>
+                  <span class="slide-title"
+                    >Progressive Web Apps - PWA Architecture Patterns</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/32/?n=9"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">32</span
+                    ><span class="slide-query">?n=9</span>
+                  </div>
+                  <span class="slide-title"
+                    >Progressive Web Apps - Example Service Worker
+                    Strategies</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/33/?n=14"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">33</span
+                    ><span class="slide-query">?n=14</span>
+                  </div>
+                  <span class="slide-title"
+                    >Progressive Web Apps - Further Info</span
+                  >
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+              <li class="slide-item">
+                <a
+                  class="slide-card"
+                  href="https://kherrick.github.io/apps/slides/rendering-app-shells-and-pwas-oh-my/end/?n=1"
+                >
+                  <div class="slide-card-top">
+                    <span class="slide-num">END</span
+                    ><span class="slide-query">?n=1</span>
+                  </div>
+                  <span class="slide-title">The End</span>
+                  <span class="slide-open-hint">Open slide →</span>
+                </a>
+              </li>
+            </ol>
+          </article>
+        </div>
+      </section>
+
+      <!-- OTHER -->
+      <section
+        id="other"
+        class="category-section"
+        aria-labelledby="heading-other"
+      >
+        <div class="section-header">
+          <h2 id="heading-other">Other</h2>
+          <span class="section-meta"
+            >Frameworks, AI experiments, starters, and articles</span
+          >
+        </div>
+
+        <div class="card-grid">
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://xt-ml.github.io/shadow-claw/">Shadow Claw</a>
+              </h3>
+              <span class="badge">AI Assistant</span>
+            </div>
+            <p class="card-desc">
+              Dual-runtime browser PWA and headless AI coding assistant.
+            </p>
+          </article>
+
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://github.com/xt-ml/shadow-claw-template/"
+                  >Shadow Claw Template</a
+                >
+              </h3>
+              <span class="badge">GitHub</span>
+            </div>
+            <p class="card-desc">
+              Starter repository template for Shadow Claw projects.
+            </p>
+          </article>
+
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/canvas-image-manipulation/"
+                  >Canvas Image Manipulation</a
+                >
+              </h3>
+              <span class="badge">Canvas</span>
+            </div>
+            <p class="card-desc">
+              Browser-based image processing on HTML Canvas.
+            </p>
+          </article>
+
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/material-design-lite/"
+                  >Material Design Lite</a
+                >
+              </h3>
+              <span class="badge">UI</span>
+            </div>
+            <p class="card-desc">
+              Material Design Lite component demos and layouts.
+            </p>
+          </article>
+
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3><a href="https://kherrick.github.io/maze/">Maze</a></h3>
+              <span class="badge">Demo</span>
+            </div>
+            <p class="card-desc">Interactive maze exploration demo.</p>
+          </article>
+
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/NgRxElementDemo/"
+                  >NgRx Element Demo</a
+                >
+              </h3>
+              <span class="badge">Angular</span>
+            </div>
+            <p class="card-desc">
+              Angular Elements paired with NgRx reactive state management.
+            </p>
+          </article>
+
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/tfjs-component-playground/"
+                  >TensorFlow.js Component Playground</a
+                >
+              </h3>
+              <span class="badge">ML</span>
+            </div>
+            <p class="card-desc">
+              Client-side machine learning experiments built as components.
+            </p>
+          </article>
+
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/web-components-starter/"
+                  >Web Components Starter</a
+                >
+              </h3>
+              <span class="badge">Custom Elements</span>
+            </div>
+            <p class="card-desc">
+              Starter template for standards-based Web Components.
+            </p>
+          </article>
+
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/x-postpress-code/"
+                  >X-Postpress Code</a
+                >
+              </h3>
+              <span class="badge">Component</span>
+            </div>
+            <p class="card-desc">
+              Custom element code showcase and syntax experiments.
+            </p>
+          </article>
+
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/x-weather-app/"
+                  >X-Weather App</a
+                >
+              </h3>
+              <span class="badge">PWA</span>
+            </div>
+            <p class="card-desc">
+              Weather web component and progressive web application.
+            </p>
+          </article>
+
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3><a href="https://kherrick.github.io/x-app/">X-App</a></h3>
+              <span class="badge">4 Posts</span>
+            </div>
+            <p class="card-desc">
+              Static publishing experiments and XML/XSLT posts.
+            </p>
+            <ul class="chip-list">
+              <li class="chip-item">
+                <a
+                  class="chip-link"
+                  href="https://kherrick.github.io/x-app/2024/12/first-post/"
+                  >First Post</a
+                >
+              </li>
+              <li class="chip-item">
+                <a
+                  class="chip-link"
+                  href="https://kherrick.github.io/x-app/2025/01/aurora-borealis/"
+                  >Aurora Borealis</a
+                >
+              </li>
+              <li class="chip-item">
+                <a
+                  class="chip-link"
+                  href="https://kherrick.github.io/x-app/2025/01/exercising-xslt/"
+                  >Exercising XSLT</a
+                >
+              </li>
+              <li class="chip-item">
+                <a
+                  class="chip-link"
+                  href="https://kherrick.github.io/x-app/2025/01/xpath-in-action/"
+                  >XPath in Action</a
+                >
+              </li>
+            </ul>
+          </article>
+
+          <article class="card filterable-card">
+            <div class="card-title-row">
+              <h3>
+                <a href="https://kherrick.github.io/x-ml-data/">X-ML Data</a>
+              </h3>
+              <span class="badge">4 Posts</span>
+            </div>
+            <p class="card-desc">
+              XML-driven content and transformation articles.
+            </p>
+            <ul class="chip-list">
+              <li class="chip-item">
+                <a
+                  class="chip-link"
+                  href="https://kherrick.github.io/x-ml-data/2024/12/first-post/"
+                  >First Post</a
+                >
+              </li>
+              <li class="chip-item">
+                <a
+                  class="chip-link"
+                  href="https://kherrick.github.io/x-ml-data/2025/01/aurora-borealis/"
+                  >Aurora Borealis</a
+                >
+              </li>
+              <li class="chip-item">
+                <a
+                  class="chip-link"
+                  href="https://kherrick.github.io/x-ml-data/2025/01/exercising-xslt/"
+                  >Exercising XSLT</a
+                >
+              </li>
+              <li class="chip-item">
+                <a
+                  class="chip-link"
+                  href="https://kherrick.github.io/x-ml-data/2025/01/xpath-in-action/"
+                  >XPath in Action</a
+                >
+              </li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <footer class="site-footer">
+        <span
+          >kherrick.github.io — Directory of games, Wasm projects, web apps
+          &amp; slide decks</span
+        >
+        <a href="#top" id="back-to-top">Back to top ↑</a>
+      </footer>
     </main>
+
+    <script>
+      (() => {
+        const meta = document.querySelector('meta[name="color-scheme"]');
+        const toggleBtn = document.getElementById("theme-toggle");
+        const toggleText = document.getElementById("theme-toggle-text");
+        const darkMedia = window.matchMedia("(prefers-color-scheme: dark)");
+
+        function getSystemScheme() {
+          return darkMedia.matches ? "dark" : "light";
+        }
+
+        function getRenderedScheme() {
+          const content = meta.getAttribute("content");
+          if (content === "light" || content === "dark") return content;
+          return getSystemScheme();
+        }
+
+        function syncToggleA11y() {
+          const nextScheme = getRenderedScheme() === "dark" ? "light" : "dark";
+          const label = `Switch to ${nextScheme} theme`;
+          toggleBtn.setAttribute("aria-label", label);
+          toggleText.textContent = label;
+        }
+
+        toggleBtn?.addEventListener("click", () => {
+          const target = getRenderedScheme() === "dark" ? "light" : "dark";
+          const system = getSystemScheme();
+          try {
+            if (target === system) {
+              localStorage.removeItem("color-scheme");
+              meta.setAttribute("content", "light dark");
+            } else {
+              localStorage.setItem("color-scheme", target);
+              meta.setAttribute("content", target);
+            }
+          } catch {
+            meta.setAttribute(
+              "content",
+              target === system ? "light dark" : target,
+            );
+          }
+          syncToggleA11y();
+        });
+
+        darkMedia.addEventListener("change", syncToggleA11y);
+        window.addEventListener("storage", (e) => {
+          if (e.key !== "color-scheme") return;
+          const v = e.newValue;
+          meta.setAttribute(
+            "content",
+            v === "light" || v === "dark" ? v : "light dark",
+          );
+          syncToggleA11y();
+        });
+        syncToggleA11y();
+
+        // Scroll-state fallback for browsers without CSS scroll-state container queries
+        if (!CSS.supports("container-type", "scroll-state")) {
+          const bar = document.querySelector(".top-bar");
+          let lastY = scrollY;
+          addEventListener(
+            "scroll",
+            () => {
+              const y = Math.max(
+                0,
+                Math.min(
+                  scrollY,
+                  document.documentElement.scrollHeight - innerHeight,
+                ),
+              );
+              if (y === lastY) return;
+              bar?.classList.toggle(
+                "is-hidden",
+                y > lastY && y > (bar?.offsetHeight || 56),
+              );
+              lastY = y;
+            },
+            { passive: true },
+          );
+        }
+
+        // Back-to-top smooth helper
+        document
+          .getElementById("back-to-top")
+          ?.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0 });
+          });
+
+        // Slide deck controls: prev/next filmstrip scroll, grid view toggle, per-deck filter
+        const deckState = [];
+        document.querySelectorAll(".deck-card").forEach((card) => {
+          const filmstrip = card.querySelector(".slide-filmstrip");
+          const filterInput = card.querySelector(".deck-filter");
+          const countEl = card.querySelector(".deck-match-count");
+          const gridBtn = card.querySelector(".deck-grid-toggle");
+          const prevBtn = card.querySelector(".deck-prev");
+          const nextBtn = card.querySelector(".deck-next");
+          const items = [...card.querySelectorAll(".slide-item")];
+
+          function updateDeckFilter() {
+            const globalQ = (
+              document.getElementById("global-filter")?.value || ""
+            )
+              .trim()
+              .toLowerCase();
+            const localQ = (filterInput?.value || "").trim().toLowerCase();
+            let visible = 0;
+            for (const li of items) {
+              const txt = li.textContent.toLowerCase();
+              const match =
+                (!globalQ || txt.includes(globalQ)) &&
+                (!localQ || txt.includes(localQ));
+              li.hidden = !match;
+              if (match) visible++;
+            }
+            if (countEl) {
+              countEl.textContent = `${visible} / ${items.length}`;
+            }
+            return visible;
+          }
+
+          filterInput?.addEventListener("input", updateDeckFilter);
+
+          gridBtn?.addEventListener("click", () => {
+            const isGrid = filmstrip.classList.toggle("is-grid");
+            gridBtn.setAttribute("aria-pressed", String(isGrid));
+            gridBtn.textContent = isGrid ? "Filmstrip" : "Grid view";
+            prevBtn.disabled = isGrid;
+            nextBtn.disabled = isGrid;
+          });
+
+          const stepScroll = (dir) => {
+            const amount = Math.max(
+              240,
+              Math.floor(filmstrip.clientWidth * 0.72),
+            );
+            filmstrip.scrollBy({ left: dir * amount, behavior: "smooth" });
+          };
+          prevBtn?.addEventListener("click", () => stepScroll(-1));
+          nextBtn?.addEventListener("click", () => stepScroll(1));
+
+          deckState.push({ card, items, updateDeckFilter });
+        });
+
+        // Global quick filter across cards, hub guides, and slide decks
+        const globalInput = document.getElementById("global-filter");
+        const statusBar = document.getElementById("filter-status-bar");
+        const statusText = document.getElementById("filter-status-text");
+        const clearBtn = document.getElementById("clear-global-filter");
+
+        function applyGlobalFilter() {
+          const q = (globalInput?.value || "").trim().toLowerCase();
+          let totalMatches = 0;
+
+          document.querySelectorAll(".category-section").forEach((section) => {
+            let sectionVisible = 0;
+
+            section.querySelectorAll(".filterable-card").forEach((card) => {
+              const details = card.querySelector("details");
+              const hubItems = [...card.querySelectorAll(".hub-item")];
+              if (!q) {
+                card.hidden = false;
+                hubItems.forEach((item) => (item.hidden = false));
+                sectionVisible++;
+                totalMatches++;
+                return;
+              }
+
+              if (hubItems.length > 0) {
+                let hubHits = 0;
+                for (const item of hubItems) {
+                  const match = item.textContent.toLowerCase().includes(q);
+                  item.hidden = !match;
+                  if (match) hubHits++;
+                }
+                const headerMatch =
+                  (
+                    card.querySelector("h3")?.textContent.toLowerCase() || ""
+                  ).includes(q) ||
+                  (
+                    card
+                      .querySelector(".card-desc")
+                      ?.textContent.toLowerCase() || ""
+                  ).includes(q);
+                if (headerMatch && hubHits === 0) {
+                  hubItems.forEach((item) => (item.hidden = false));
+                }
+                const show = headerMatch || hubHits > 0;
+                card.hidden = !show;
+                if (details) details.open = hubHits > 0;
+                if (show) {
+                  sectionVisible++;
+                  totalMatches++;
+                }
+              } else {
+                const match = card.textContent.toLowerCase().includes(q);
+                card.hidden = !match;
+                if (match) {
+                  sectionVisible++;
+                  totalMatches++;
+                }
+              }
+            });
+
+            if (section.id === "slides") {
+              for (const d of deckState) {
+                const visibleSlides = d.updateDeckFilter();
+                const deckTitleMatch = (
+                  d.card
+                    .querySelector(".deck-title-group")
+                    ?.textContent.toLowerCase() || ""
+                ).includes(q);
+                const showDeck = !q || deckTitleMatch || visibleSlides > 0;
+                d.card.hidden = !showDeck;
+                if (showDeck) {
+                  sectionVisible++;
+                  totalMatches += q ? visibleSlides : 1;
+                }
+              }
+            }
+
+            section.hidden = Boolean(q) && sectionVisible === 0;
+          });
+
+          if (q) {
+            statusBar.hidden = false;
+            statusText.textContent = `Filtering by "${globalInput.value.trim()}" — ${totalMatches} matching items shown.`;
+          } else {
+            statusBar.hidden = true;
+            statusText.textContent = "";
+          }
+        }
+
+        globalInput?.addEventListener("input", applyGlobalFilter);
+        clearBtn?.addEventListener("click", () => {
+          globalInput.value = "";
+          applyGlobalFilter();
+          globalInput.focus();
+        });
+      })();
+    </script>
   </body>
 </html>
